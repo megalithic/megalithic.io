@@ -42,8 +42,8 @@ jobs:
         run: mix test
       - name: Check formatting
         run: mix format --check-formatted
-      - name: Check credo (static analysis)
-        run: mix credo --strict
+      # - name: Check credo (static analysis)
+      #   run: mix credo --strict
 
   deploy:
     name: Deploy app

@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    name: Build and test
+    name: Build, test and verify
     runs-on: ubuntu-latest
     services:
       db:
@@ -46,7 +46,7 @@ jobs:
       #   run: mix credo --strict
 
   deploy:
-    name: Deploy app
+    name: Deploy
     needs: test
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest

@@ -1,0 +1,1 @@
+call "%~dp0\megalithic" eval Megalithic.Release.migrate

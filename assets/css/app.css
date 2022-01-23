@@ -39,6 +39,7 @@
 .phx-no-feedback.invalid-feedback,
 .phx-no-feedback .invalid-feedback {
   display: none;
+  @apply text-black;
 }
 
 .phx-click-loading {

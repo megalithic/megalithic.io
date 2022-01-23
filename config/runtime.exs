@@ -20,8 +20,6 @@ if config_env() == :prod do
       For example: ecto://USER:PASS@HOST/DATABASE
       """
 
-  maybe_ipv6 = if System.get_env("ECTO_IPV6"), do: [:inet6], else: []
-
   config :megalithic, Megalithic.Repo,
     # ssl: true,
     url: database_url,

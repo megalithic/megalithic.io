@@ -65,7 +65,8 @@ defmodule Megalithic.MixProject do
       {:castore, "~> 0.1.5"},
       {:earmark, "1.4.20"},
       {:earmark_parser, "1.4.18"},
-      {:mint, "~> 1.0"}
+      {:mint, "~> 1.0"},
+      {:finch, "~> 0.10", only: [:dev, :test]}
     ]
   end
 

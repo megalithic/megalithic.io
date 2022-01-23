@@ -13,14 +13,16 @@ if System.get_env("PHX_SERVER") && System.get_env("RELEASE_NAME") do
 end
 
 if config_env() == :prod do
+  System.get_env("AUTH_USER") ||
+    System.get_env("AUTH_PASS") ||
+    raise "environment variable AUTH_USER and/or AUTH_PASS is missing."
+
   database_url =
     System.get_env("DATABASE_URL") ||
       raise """
       environment variable DATABASE_URL is missing.
       For example: ecto://USER:PASS@HOST/DATABASE
       """
-
-  maybe_ipv6 = if System.get_env("ECTO_IPV6"), do: [:inet6], else: []
 
   config :megalithic, Megalithic.Repo,
     # ssl: true,
@@ -44,12 +46,16 @@ if config_env() == :prod do
     System.get_env("FLY_APP_NAME") ||
       raise "FLY_APP_NAME not available"
 
-  host = "#{app_name}.fly.dev" || System.get_env("PHX_HOST") || "example.com"
+  host =
+    "#{app_name}.fly.dev" || System.get_env("PHX_HOST") || System.get_env("HOST") ||
+      "megalithic.io"
+
   port = String.to_integer(System.get_env("PORT") || "4000")
 
   config :megalithic, MegalithicWeb.Endpoint,
     server: true,
     url: [host: host, port: 80],
+    # url: [scheme: "https", host: host, port: 443],
     http: [
       # Enable IPv6 and bind on all interfaces.
       # Set it to  {0, 0, 0, 0, 0, 0, 0, 1} for local network only access.

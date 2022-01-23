@@ -3,9 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, shrink-to-fit=no"/>
+    <%= render "_icons.html", assigns %>
     <%= csrf_meta_tag() %>
-    <%= live_title_tag assigns[:page_title] || "Megalithic", suffix: " · Phoenix Framework" %>
+    <%= MegalithicWeb.SEO.meta(assigns) %>
+    <%= live_title_tag assigns[:page_title] || "megalithic industries", suffix: " · megalithic industries" %>
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")} />
     <script
       defer
@@ -13,6 +15,13 @@
       type="text/javascript"
       src={Routes.static_path(@conn, "/assets/app.js")}
     >
+    </script>
+    <script>
+      if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        document.documentElement.classList.add("dark")
+      } else {
+        document.documentElement.classList.remove("dark")
+      }
     </script>
   </head>
   <body>
@@ -38,5 +47,6 @@
       </section>
     </header>
     <%= @inner_content %>
+    <%= render "footer.html", assigns %>
   </body>
 </html>

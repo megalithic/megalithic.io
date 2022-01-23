@@ -10,7 +10,14 @@ defmodule Megalithic.MixProject do
       compilers: [:gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      releases: [
+        megalithic: [
+          include_executables_for: [:unix],
+          include_erts: true,
+          applications: [runtime_tools: :permanent]
+        ]
+      ]
     ]
   end
 
@@ -53,7 +60,12 @@ defmodule Megalithic.MixProject do
       {:heex_formatter, github: "feliperenan/heex_formatter"},
       {:nimble_publisher, "~> 0.1.2"},
       {:makeup_elixir, ">= 0.0.0"},
-      {:makeup_erlang, ">= 0.0.0"}
+      {:makeup_erlang, ">= 0.0.0"},
+      {:tz, "~> 0.12"},
+      {:castore, "~> 0.1.5"},
+      {:earmark, "1.4.20"},
+      {:earmark_parser, "1.4.18"},
+      {:mint, "~> 1.0"}
     ]
   end
 

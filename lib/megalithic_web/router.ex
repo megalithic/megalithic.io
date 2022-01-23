@@ -34,8 +34,8 @@ defmodule MegalithicWeb.Router do
     live "/", PageLive, :home
     live "/blog", BlogLive, :index, as: :blog
     live "/blog/:id", BlogLive, :show, as: :blog
-    live "/projects", PageLive, :projects
-    live "/about", AboutLive, :about
+    # live "/projects", PageLive, :projects
+    live "/about", PageLive, :about
   end
 
   # Other scopes may use custom stacks.

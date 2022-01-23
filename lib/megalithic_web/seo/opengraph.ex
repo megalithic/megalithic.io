@@ -29,9 +29,9 @@ defmodule MegalithicWeb.SEO.OpenGraph do
     article_section: "Software Development",
     # site = twitter handle representing the overall site.
     locale: "en_US",
-    site: "@bernheisel",
+    site: "@megalithic",
     site_title: @generic.title,
-    twitter_handle: "@bernheisel",
+    twitter_handle: "@megalithic",
     type: "website"
   ]
 
@@ -50,7 +50,7 @@ defmodule MegalithicWeb.SEO.OpenGraph do
     file = "/images/blog/#{post.id}.png"
 
     exists? =
-      [Application.app_dir(:bern), "/priv/static", file]
+      [Application.app_dir(:megalithic), "/priv/static", file]
       |> Path.join()
       |> File.exists?()
 

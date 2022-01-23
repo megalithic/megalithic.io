@@ -6,8 +6,8 @@
     <title>UH OH</title>
     <%= render MegalithicWeb.LayoutView, "_icons.html", assigns %>
     <%= csrf_meta_tag() %>
-    <link phx-track-static rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
-    <script defer phx-track-static type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+    <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/css/app.css")}/>
+    <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/js/app.js")}></script>
   </head>
   <body class="dark:bg-gray-900 dark:text-gray-100">
     <%= render(MegalithicWeb.LayoutView, "nav.html", assigns) %>

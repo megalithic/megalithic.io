@@ -7,7 +7,7 @@ defmodule MegalithicWeb.SEO do
     assigns =
       assigns
       |> assign_new(:canonical_url, fn ->
-        "https://bernheisel.com#{Phoenix.Controller.current_path(assigns.conn)}"
+        "https://megalithic.io#{Phoenix.Controller.current_path(assigns.conn)}"
       end)
       |> assign_new(:site, fn -> %MegalithicWeb.SEO.Generic{} end)
       |> assign_new(:breadcrumbs, fn -> nil end)
@@ -67,6 +67,4 @@ defmodule MegalithicWeb.SEO do
     <% end %>
     """
   end
-end
-
 end

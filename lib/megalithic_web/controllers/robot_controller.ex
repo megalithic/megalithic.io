@@ -12,7 +12,7 @@ defmodule MegalithicWeb.RobotController do
   def robots(conn, _params) do
     conn
     |> put_resp_content_type("text/plain")
-    |> render("robots.txt", %{env: Application.get_env(:bern, :app_env)})
+    |> render("robots.txt", %{env: Application.get_env(:megalithic, :app_env)})
   end
 
   def site_webmanifest(conn, _params) do
@@ -51,6 +51,4 @@ defmodule MegalithicWeb.RobotController do
     |> put_resp_content_type("application/xml")
     |> render("sitemap.xml", posts: Megalithic.Blog.published_posts())
   end
-end
-
 end

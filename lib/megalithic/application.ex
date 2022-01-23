@@ -15,6 +15,7 @@ defmodule Megalithic.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Megalithic.PubSub},
       # Start the Endpoint (http/https)
+      MegalithicWeb.Presence,
       MegalithicWeb.Endpoint
       # Start a worker by calling: Megalithic.Worker.start_link(arg)
       # {Megalithic.Worker, arg}

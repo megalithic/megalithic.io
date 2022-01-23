@@ -8,7 +8,16 @@
 import Config
 
 config :megalithic,
-  ecto_repos: [Megalithic.Repo]
+  ecto_repos: [Megalithic.Repo],
+  app_env: Mix.env()
+
+config :mime, :types, %{
+  "application/xml" => ["xml"],
+  "application/manifest+json" => ["webmanifest"]
+}
+
+config :elixir, :time_zone_database, Tz.TimeZoneDatabase
+config :tz, reject_time_zone_periods_before_year: 2000
 
 # Configures the endpoint
 config :megalithic, MegalithicWeb.Endpoint,

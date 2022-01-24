@@ -14,21 +14,20 @@ defmodule Megalithic.Blog.Post do
   ]
 
   def build(filename, attrs, body) do
-    [
-      <<year::bytes-size(4), month::bytes-size(2), day::bytes-size(2)>>,
-      slug
-    ] =
+    [year, month_day_id] =
       filename
       |> Path.rootname()
       |> Path.split()
-      |> List.last()
-      |> String.split("-", parts: 2)
+      |> Enum.take(-2)
+
+    [month, day, slug] = String.split(month_day_id, "-", parts: 3)
+    date = Date.from_iso8601!("#{year}-#{month}-#{day}")
 
     struct!(
       __MODULE__,
       [
         id: slug,
-        date: Date.from_iso8601!("#{year}-#{month}-#{day}"),
+        date: date,
         body: body,
         reading_time: estimate_reading_time(body)
       ] ++ Map.to_list(attrs)

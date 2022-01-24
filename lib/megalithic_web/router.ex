@@ -14,10 +14,28 @@ defmodule MegalithicWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", MegalithicWeb do
-    pipe_through :browser
+  pipeline :robots do
+    plug :accepts, ~w[json txt xml webmanifest]
+  end
 
-    get "/", PageController, :index
+  scope "/", MegalithicWeb, log: false do
+    pipe_through [:robots]
+
+    get "/sitemap.xml", RobotController, :sitemap
+    get "/robots.txt", RobotController, :robots
+    get "/rss.xml", RobotController, :rss
+    get "/site.webmanifest", RobotController, :site_webmanifest
+    get "/browserconfig.xml", RobotController, :browserconfig
+  end
+
+  scope "/", MegalithicWeb do
+    pipe_through [:browser]
+
+    live "/", PageLive, :home
+    live "/blog", BlogLive, :index, as: :blog
+    live "/blog/:id", BlogLive, :show, as: :blog
+    # live "/projects", PageLive, :projects
+    live "/about", PageLive, :about
   end
 
   # Other scopes may use custom stacks.

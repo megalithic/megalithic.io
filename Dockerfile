@@ -42,19 +42,13 @@ RUN mkdir config
 COPY config/config.exs config/${MIX_ENV}.exs config/
 RUN mix deps.compile
 
+COPY lib lib
 COPY priv priv
-
-# note: if your project uses a tool like https://purgecss.com/,
-# which customizes asset compilation based on what it finds in
-# your Elixir templates, you will need to move the asset compilation
-# step down so that `lib` is available.
 COPY assets assets
+COPY posts posts
 
 # compile assets
 RUN mix assets.deploy
-
-# Compile the release
-COPY lib lib
 
 RUN mix compile
 
@@ -84,7 +78,7 @@ RUN chown nobody /app
 # Only copy the final release from the build stage
 COPY --from=builder --chown=nobody:root /app/_build/prod/rel/megalithic ./
 
-USER nobody
+USER nobody:nobody
 
 CMD ["/app/bin/server"]
 

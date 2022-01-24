@@ -97,6 +97,7 @@ defmodule MegalithicWeb do
 
       import MegalithicWeb.ErrorHelpers
       import MegalithicWeb.Gettext
+      import MegalithicWeb.ViewHelpers
       alias MegalithicWeb.Router.Helpers, as: Routes
     end
   end

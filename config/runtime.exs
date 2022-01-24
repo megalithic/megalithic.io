@@ -13,9 +13,9 @@ if System.get_env("PHX_SERVER") && System.get_env("RELEASE_NAME") do
 end
 
 if config_env() == :prod do
-  System.get_env("AUTH_USER") ||
-    System.get_env("AUTH_PASS") ||
-    raise "environment variable AUTH_USER and/or AUTH_PASS is missing."
+  # System.get_env("AUTH_USER") ||
+  #   System.get_env("AUTH_PASS") ||
+  #   raise "environment variable AUTH_USER and/or AUTH_PASS is missing."
 
   database_url =
     System.get_env("DATABASE_URL") ||

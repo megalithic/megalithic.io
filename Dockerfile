@@ -12,21 +12,23 @@
 #   - https://pkgs.org/ - resource for finding needed packages
 #   - Ex: hexpm/elixir:1.12.3-erlang-24.0.5-debian-bullseye-20210902-slim
 #
-ARG BUILDER_IMAGE="hexpm/elixir:1.12.3-erlang-24.0.5-debian-bullseye-20210902-slim"
+# hexpm/elixir:1.12.3-erlang-24.0.5-debian-bullseye-20210902-slim
+# hexpm/elixir:1.13.2-erlang-22.1.8-debian-bullseye-20210902-slim
+ARG BUILDER_IMAGE="hexpm/elixir:1.13.2-erlang-22.1.8-debian-bullseye-20210902-slim"
 ARG RUNNER_IMAGE="debian:bullseye-20210902-slim"
 
 FROM ${BUILDER_IMAGE} as builder
 
 # install build dependencies
 RUN apt-get update -y && apt-get install -y build-essential git \
-    && apt-get clean && rm -f /var/lib/apt/lists/*_*
+  && apt-get clean && rm -f /var/lib/apt/lists/*_*
 
 # prepare build dir
 WORKDIR /app
 
 # install hex + rebar
 RUN mix local.hex --force && \
-    mix local.rebar --force
+  mix local.rebar --force
 
 # set build ENV
 ENV MIX_ENV="prod"
@@ -42,10 +44,12 @@ RUN mkdir config
 COPY config/config.exs config/${MIX_ENV}.exs config/
 RUN mix deps.compile
 
-COPY lib lib
-COPY priv priv
-COPY assets assets
-COPY posts posts
+
+COPY lib ./lib
+COPY rel ./rel
+COPY posts ./posts
+COPY assets ./assets
+COPY priv ./priv
 
 # compile assets
 RUN mix assets.deploy
@@ -55,14 +59,13 @@ RUN mix compile
 # Changes to config/runtime.exs don't require recompiling the code
 COPY config/runtime.exs config/
 
-COPY rel rel
 RUN mix release
 
 # start a new build stage so that the final image will only contain
 # the compiled release and other runtime necessities
 FROM ${RUNNER_IMAGE}
 
-RUN apt-get update -y && apt-get install -y libstdc++6 openssl libncurses5 locales \
+RUN apt-get update -y && apt-get install -y libstdc++6 openssl libncurses5 locales imagemagick \
   && apt-get clean && rm -f /var/lib/apt/lists/*_*
 
 # Set the locale

@@ -81,7 +81,7 @@ RUN chown nobody /app
 # Only copy the final release from the build stage
 COPY --from=builder --chown=nobody:root /app/_build/prod/rel/megalithic ./
 
-USER nobody:nobody
+USER nobody
 
 CMD ["/app/bin/server"]
 

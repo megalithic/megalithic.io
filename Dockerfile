@@ -20,7 +20,7 @@ ARG RUNNER_IMAGE="debian:bullseye-20210902-slim"
 FROM ${BUILDER_IMAGE} as builder
 
 # install build dependencies
-RUN apt-get update -y && apt-get install -y build-essential git \
+RUN apt-get update -y && apt-get install -y build-essential git npm yarn \
   && apt-get clean && rm -f /var/lib/apt/lists/*_*
 
 # prepare build dir
@@ -50,6 +50,7 @@ COPY rel ./rel
 COPY posts ./posts
 COPY assets ./assets
 COPY priv ./priv
+RUN cd assets && yarn install
 
 # compile assets
 RUN mix assets.deploy

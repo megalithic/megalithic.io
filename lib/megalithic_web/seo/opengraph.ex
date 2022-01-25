@@ -7,8 +7,23 @@ defmodule MegalithicWeb.SEO.OpenGraph do
   https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards
   https://api.slack.com/reference/messaging/link-unfurling#classic_unfurl
 
-  ## TODO
+  MOAR to research:
+  <%
+    og_meta = extract_open_graph(@og_resource, @conn)
+  %>
+  <title><%= og_meta.title %></title>
+  <meta property="og:title" content={ og_meta.title }>
+  <meta property="og:description" content={ og_meta.description }>
+  <meta property="og:image" content={ og_meta.image }>
+  <meta property="og:url" content={ current_url(@conn) }>
+  <meta name="twitter:card" content={ og_meta.twitter }>
 
+  <meta property="og:site_name" content={ og_meta.site_name }>
+  <meta name="twitter:image:alt" content={ og_meta.image_alt }>
+
+  <meta name="description" content={ og_meta.description }>
+
+  ## TODO
     - Tokenizer that turns HTML into sentences. re: https://github.com/wardbradt/HTMLST
     - Blog post header images
   """

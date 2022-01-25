@@ -45,9 +45,9 @@ COPY config/config.exs config/${MIX_ENV}.exs config/
 RUN mix deps.compile
 
 COPY lib ./lib
+COPY priv ./priv
 COPY posts ./posts
 COPY assets ./assets
-COPY priv ./priv
 # RUN cd assets && yarn
 
 RUN npm --prefix ./assets ci --progress=false --no-audit --loglevel=error

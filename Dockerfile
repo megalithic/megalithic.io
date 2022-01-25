@@ -44,7 +44,6 @@ RUN mkdir config
 COPY config/config.exs config/${MIX_ENV}.exs config/
 RUN mix deps.compile
 
-
 COPY lib ./lib
 COPY posts ./posts
 COPY assets ./assets

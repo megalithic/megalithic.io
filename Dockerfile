@@ -52,7 +52,7 @@ COPY assets ./assets
 # RUN npm --prefix ./assets ci --progress=false --no-audit --loglevel=error
 # RUN npm --prefix ./assets deploy --progress=false --no-audit --loglevel=error
 RUN npm --prefix ./assets ci --no-audit
-RUN npm --prefix ./assets deploy --no-audit
+RUN npm --prefix ./assets run deploy --no-audit
 
 # compile assets
 RUN mix assets.deploy

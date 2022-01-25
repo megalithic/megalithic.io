@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "deploy": "cd assets; NODE_ENV=production tailwindcss --postcss --minify -i css/app.css -o ../priv/static/assets/app.css"
+  },
+  "devDependencies": {
+    "@yarnpkg/esbuild-plugin-pnp": "latest",
+    "autoprefixer": "latest",
+    "cssnano": "^5.0.9",
+    "esbuild": "latest",
+    "postcss": "latest",
+    "postcss-import": "latest",
+    "svg-sprite": "^1.5.3",
+    "tailwindcss": "latest"
+  }
+}

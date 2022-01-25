@@ -25,17 +25,17 @@ config :megalithic, MegalithicWeb.Endpoint,
   secret_key_base: "hMuvUVs81QBcsVk+BLaSlWtjmRgJlDLsKqQS+2LR6E1lsynVPsfsCXl5opZjQoWY",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
-    # yarn: [
-    #   "run",
-    #   "tailwindcss",
-    #   "--input=css/app.css",
-    #   "--output=../priv/static/assets/app.css",
-    #   "--config=tailwind.config.js",
-    #   "--postcss",
-    #   "--watch",
-    #   cd: Path.expand("../assets", __DIR__)
-    # ]
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
+    yarn: [
+      "run",
+      "tailwindcss",
+      "--input=css/app.css",
+      "--output=../priv/static/assets/app.css",
+      "--config=tailwind.config.js",
+      "--postcss",
+      "--watch",
+      cd: Path.expand("../assets", __DIR__)
+    ]
   ]
 
 # ## SSL Support

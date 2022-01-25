@@ -19,9 +19,11 @@ defmodule MegalithicWeb.Endpoint do
   plug Plug.Static,
     at: "/",
     from: :megalithic,
-    gzip: true,
-    brotli: true,
+    gzip: false,
+    # brotli: true,
     only: ~w(assets fonts images favicon.ico robots.txt audio video)
+
+  # ~w(assets fonts images sprites favicon.ico favicon.svg site.webmanifest browserconfig.xml robots.txt)
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.

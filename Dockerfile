@@ -48,9 +48,9 @@ COPY lib ./lib
 COPY priv ./priv
 COPY posts ./posts
 COPY assets ./assets
-# RUN cd assets && yarn
 
 RUN npm --prefix ./assets ci --progress=false --no-audit --loglevel=error
+RUN npm --prefix ./assets deploy --progress=false --no-audit --loglevel=error
 
 # compile assets
 RUN mix assets.deploy

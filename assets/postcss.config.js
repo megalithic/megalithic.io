@@ -5,6 +5,6 @@ module.exports = ({ env }) => ({
     "tailwindcss": {},
     "autoprefixer": {},
     // optimisations: https://cssnano.co/docs/optimisations
-    // "cssnano": env === "production" ? { preset: "default" } : false,
+    "cssnano": env === "production" ? { preset: "default" } : false,
   },
 });

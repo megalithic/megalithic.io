@@ -1,8 +1,10 @@
 @layer base {
   html {
     @apply h-full
-      scroll-smooth
-      text-base;
+    scroll-smooth
+    dark:bg-gray-900
+    dark:text-white
+    text-base;
   }
 
   body {

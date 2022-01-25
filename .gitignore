@@ -42,3 +42,4 @@ npm-debug.log
 
 # We use npm
 # /assets/yarn.lock
+.DS_Store

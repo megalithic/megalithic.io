@@ -14,18 +14,13 @@
       <%# <script async defer data-exclude="/admin/*" data-domain="megalithic.io" src="https://plausible.megalithic.io/js/plausible.exclusions.js"></script> %>
       <%# <link rel="dns-prefetch" href="https://plausible.megalithic.io" /> %>
     <% end %>
-    <script
-      defer
-      phx-track-static
-      type="text/javascript"
-      src={Routes.static_path(@conn, "/assets/app.js")}
-    >
-    </script>
-    <script>
-      if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-        document.documentElement.classList.add("dark")
+    <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
+    <script type="text/javascript">
+      // do this here to avoid flash of unstyled content (FOUC)
+      if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
       } else {
-        document.documentElement.classList.remove("dark")
+        document.documentElement.classList.remove('dark')
       }
     </script>
   </head>

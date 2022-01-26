@@ -2,13 +2,15 @@
   html {
     @apply h-full
     scroll-smooth
-    dark:bg-gray-900
-    dark:text-white
     text-base;
   }
 
   body {
-    @apply h-full;
+    @apply h-full
+    scroll-smooth
+    dark:bg-gray-900
+    dark:text-white
+    text-base;
   }
 
   @font-face {

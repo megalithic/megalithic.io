@@ -6,6 +6,5 @@ defmodule MegalithicWeb.SEO.Generic do
   """
 
   defstruct description: "A blog, playground, and tinker box for development.",
-    related.",
             title: "Megalithic Industries (a Seth Messer production)"
 end

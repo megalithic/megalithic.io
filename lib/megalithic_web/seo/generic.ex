@@ -5,6 +5,7 @@ defmodule MegalithicWeb.SEO.Generic do
   https://support.google.com/webmasters/answer/7451184?hl=en
   """
 
-  defstruct description: "A blog about development",
-            title: "Seth Messer's Blog"
+  defstruct description: "A blog, playground, and tinker box for development.",
+    related.",
+            title: "Megalithic Industries (a Seth Messer production)"
 end

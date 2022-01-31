@@ -16,6 +16,9 @@ module.exports = {
         // "sans": ["Inter", "sans-serif"],
         // "sans-variation": ["Inter var", "sans-serif"],
       },
+      container: {
+        center: true,
+      },
     },
   },
   plugins: [],

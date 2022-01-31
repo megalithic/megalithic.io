@@ -1,6 +1,10 @@
-<%= render "header.html", assigns %>
-<main class="container">
+<%= render("header.html", assigns) %>
+
+<main class="main-content" role="main">
   <p class="alert alert-info" role="alert" phx-click="lv:clear-flash" phx-value-key="info"><%= live_flash(@flash, :info) %></p>
   <p class="alert alert-danger" role="alert" phx-click="lv:clear-flash" phx-value-key="error"><%= live_flash(@flash, :error) %></p>
-  <%= @inner_content %>
+
+  <div class="inner">
+    <%= @inner_content %>
+  </div>
 </main>

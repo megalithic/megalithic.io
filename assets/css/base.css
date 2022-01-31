@@ -94,4 +94,31 @@
         url("/fonts/FiraCode-VF.woff") format("woff-variations");
     }
   }
+
+  .header {
+    grid-area: header;
+    @apply m-4;
+  }
+  .main-content {
+    grid-area: main;
+    @apply m-4;
+  }
+  /* .item-c { */
+  /*   grid-area: sidebar; */
+  /* } */
+  .footer {
+    grid-area: footer;
+    @apply m-4;
+  }
+
+  .outer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    /* grid-template-rows: repeat(2, 300px); */
+    grid-template-areas:
+      "header header header header"
+      "main   main   main   main"
+      "footer footer footer footer";
+  }
 }

@@ -3,18 +3,30 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, shrink-to-fit=no"/>
-    <%= render "_icons.html", assigns %>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, shrink-to-fit=no"
+    />
+    <%= render("_icons.html", assigns) %>
     <%= csrf_meta_tag() %>
     <%= MegalithicWeb.SEO.meta(assigns) %>
-    <%= live_title_tag assigns[:page_title] || "megalithic industries", suffix: " · megalithic industries" %>
+    <%= live_title_tag(assigns[:page_title] || "megalithic industries", suffix: " · megalithic industries") %>
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")} />
     <%= if Application.get_env(:megalithic, :app_env) == :prod do %>
-      <script async defer data-exclude="/admin/*" data-domain="megalithic.io" src="https://plausible.io/js/plausible.js"></script>
-      <%# <script async defer data-exclude="/admin/*" data-domain="megalithic.io" src="https://plausible.megalithic.io/js/plausible.exclusions.js"></script> %>
-      <%# <link rel="dns-prefetch" href="https://plausible.megalithic.io" /> %>
+      <script
+        async
+        defer
+        data-exclude="/admin/*"
+        data-domain="megalithic.io"
+        src="https://plausible.io/js/plausible.js"
+      ></script>
     <% end %>
-    <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
+    <script
+      defer
+      phx-track-static
+      type="text/javascript"
+      src={Routes.static_path(@conn, "/assets/app.js")}
+    ></script>
     <script type="text/javascript">
       // do this here to avoid flash of unstyled content (FOUC)
       if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -25,7 +37,9 @@
     </script>
   </head>
   <body>
-    <%= @inner_content %>
-    <%= render "footer.html", assigns %>
+    <div class="container outer">
+      <%= @inner_content %>
+      <%= render("footer.html", assigns) %>
+    </div>
   </body>
 </html>

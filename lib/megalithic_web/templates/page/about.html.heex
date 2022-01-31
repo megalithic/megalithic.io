@@ -1,12 +1,12 @@
-<%# projects.html.heex template %>
-
 <div class="prose dark:prose-invert lg:prose-xl">
   <article>
     <h2>dotfiles</h2>
     <div class="space-x-4">
-      <%= outbound_link "GitHub", to: "https://github.com/megalithic/dotfiles" %>
+      <%= outbound_link("GitHub", to: "https://github.com/megalithic/dotfiles") %>
     </div>
-    <%= img_tag Routes.static_path(@socket, "/images/dotfiles.png"), class: "p-3 rounded-lg bg-gray-900", alt: "general use cases for my dotfiles" %>
+    <%= img_tag(Routes.static_path(@socket, "/images/dotfiles.png"),
+      class: "p-3 rounded-lg bg-gray-900",
+      alt: "general use cases for my dotfiles"
+    ) %>
   </article>
-
 </div>

@@ -16,3 +16,11 @@ For fly mode: [`megalithic.fly.dev`](https://megalithic.fly.dev)
 
 - [ ] [Note](https://indieweb.org/note)
 - [ ] [POSSE](https://indieweb.org/POSSE)
+
+## refs:
+
+- [Conventional Commits][1]
+- [Elixir Style Guide][2]
+
+[1]: https://www.conventionalcommits.org/en/v1.0.0/
+[2]: https://github.com/lexmag/elixir-style-guide

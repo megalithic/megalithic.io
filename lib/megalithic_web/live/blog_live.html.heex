@@ -46,7 +46,7 @@
   </div>
 <% end %>
 <%= if @live_action == :show do %>
-  <p class="nav">
+  <p class="post-nav hidden">
     <%= live_redirect to: Routes.blog_path(@socket, :index), class: "" do %>
       <svg
         class="-ml-0.5 mr-2 w-5 h-5 flex"
@@ -69,30 +69,30 @@
     <h2>
       <%= @post.title %>
     </h2>
-    <p>Published on <%= Date.to_iso8601(@post.date) %> </p>
-    <div class="meta">
+    <dl class="meta">
+      <dt>Published on <%= Date.to_iso8601(@post.date) %></dt>
       <%= if @post.original_url do %>
-        <div>
+        <dd class="original-publishing">
           <%= outbound_link("Original Publishing",
             class: "border-b-2 hover:border-accent-500 transition-colors duration-150 ease-in-out",
             to: @post.original_url
           ) %>
-        </div>
+        </dd>
       <% end %>
-      <div>
+        <dd class="reading-time">
         <%= @post.reading_time %> m read
-      </div>
+      </dd>
       <%= if @readers > 1 do %>
-        <div>
+        <dd class="current-readers">
           <%= @readers %> current readers
-        </div>
+        </dd>
       <% end %>
       <%= if Enum.any?(@post.tags) do %>
-        <div>
+        <dd class="tags">
           <%= Enum.join(@post.tags, ", ") %>
-        </div>
+        </dd>
       <% end %>
-    </div>
+    </dl>
     <div id={"post-content-#{@post.id}"} phx-hook="Highlight" phx-update="ignore" class="content">
       <%= raw(@post.body) %>
     </div>
@@ -100,9 +100,8 @@
   <div class="feedback">
     <hr class="" />
     <p class="mt-4 mb-10">
-      Share with me your thoughts. You can <%= outbound_link("tweet me at @megalithic", to: "https://twitter.com/megalithic", class: "link") %>.
-      <%= if @post.discussion_url do %> or <%= outbound_link("leave a comment at GitHub", class: "link", to: @post.discussion_url) %>
-      <% end %>
+      I'd love to hear from you, <%= outbound_link("get @ me on twitter", to: "https://twitter.com/megalithic", class: "link") %>.
+      <%= if @post.discussion_url do %> or <%= outbound_link("leave a comment at GitHub", class: "link", to: @post.discussion_url) %><% end %>
     </p>
   </div>
   <%= if Enum.any?(@relevant_posts) do %>

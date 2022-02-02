@@ -23,28 +23,31 @@ So, in an unspoken challenge from [@evantravers](https://evantravers.com) I will
 
 I knew I'd need a quick way, that fits into my current workflow, to encourage me to write. What better way to do that, than to build a quick tool to facilitate it!
 
-#### `til`
+#### Introducing `til` ->
 
 ```bash
 $ til Driven by TILs
 ```
 
-It's really that simple; I just call my script, it takes the rest of the string you type as a parameter, and ultimately builds out the frontmatter that [NimblePublisher](https://github.com/dashbitco/nimble_publisher) uses.
+It's really that simple; I just call my script, it takes the rest of the string you type as a parameter, and ultimately builds out the elixir-based frontmatter that [NimblePublisher](https://github.com/dashbitco/nimble_publisher) requires.
 
-What's really neat, is I end up in my editor of choice, [neovim](https://github.com/neovim/neovim), with my cursor in the description heredoc ready to start typing.
+What's really neat, is I end up in my editor of choice, [neovim](https://github.com/neovim/neovim), with my cursor in the `description` heredoc ready to start typing.
 
-```markdown
+```elixir
 %{
 title: "Driven by TILS",
 tags: ["til"],
 description: """
-| <- my cursor gets put here
+
 """
 }
-
 ---
 ```
 
-Additionally, I use FZF to allow me to open that existing matched title string markdown document right on up to start editing where I left off. It makes for a great way to have easy access to all of your blog posts. It also breaks down any friction I've had previously to just get to writing and publishing TILs and other blog posts.
+Additionally, using [`FZF`](https://github.com/junegunn/fzf), I'm able to take that same "title" string that I passed in to `til` and fuzzy-find for that matching string to just open the markdown document and start editing it (from any where on my system, the correct `cwd` gets set in nvim to my posts directory). It makes for a great way to have easy access to all of your blog posts. It also breaks down any friction I've had previously to just get to writing and publishing TILs and other blog posts.
 
-Please give my [`til`](https://github.com/megalithic/dotfiles/blob/main/bin/til) tool a looksy; I'd love any and all feedback!
+I hope to implement [@evantravers' way of using git commit messages to generate a CHANGELOG](https://evantravers.com/articles/2019/11/08/using-git-to-generate-a-changelog-for-your-blog/) for each blog post, soon. Neat, eh?
+
+Please give my [`til`](https://github.com/megalithic/dotfiles/blob/main/bin/til) tool a looksy; I'd love to hear feedback!
+
+More to come -- [learn (and build) in public](https://www.swyx.io/learn-in-public/), amirite?

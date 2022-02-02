@@ -42,18 +42,15 @@ if config_env() == :prod do
       You can generate one by calling: mix phx.gen.secret
       """
 
-  app_name =
-    System.get_env("FLY_APP_NAME") ||
-      raise "FLY_APP_NAME not available"
-
-  host = System.get_env("HOST") || "megalithic.io"
+  app_name = System.get_env("FLY_APP_NAME") || raise "FLY_APP_NAME not available"
+  host = System.get_env("HOST") || "megalithic.io" || "#{app_name}.fly.dev"
 
   config :megalithic, MegalithicWeb.Endpoint,
-    # server: true,
+    server: true,
     http: [
-      port: System.get_env("PORT"),
+      port: System.get_env("PORT") || 4000,
       compress: true,
-      # ip: {0, 0, 0, 0, 0, 0, 0, 0},
+      ip: {0, 0, 0, 0, 0, 0, 0, 0},
       transport_options: [socket_opts: [:inet6]]
     ],
     url: [scheme: "https", host: host, port: 443],

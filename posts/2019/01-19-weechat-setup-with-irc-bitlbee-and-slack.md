@@ -1,7 +1,6 @@
 %{
-title: Weechat Setup With IRC, Bitlbee And Slack
-tags: ["til", "weechat", "cli", "slack", "bitlbee", "dotfiles"]
-keywords: irc,weechat,wechat,whatsapp,rtc,freenode,wee-chat,slack,bitlbee,google,hangouts,google hangouts,wee-slack,wee_slack,weeslack,python,purple,gtalk,jabber,xmpp,digital ocean,droplet,do,znc,bouncer,ubuntu,18.04,setup,connect,setup,config,configurations,connections,service,services,ubuntu 18.04,ubuntu 16.04,daemon,websocket,websockets,api,real time chat,real-time,cli,command,command-line,interface,command line interface,tool,tools,oss,opensource,open-source,open source,github,git,version control,mercurial,hg,vcs,dotfiles,dots,files,python,pip,readme,systemd,initd,etc,mac,apple,macos,mojave,sierra,high sierra,macosx,osx,mac os,mac osx,chat,token,register,registration,megalithic,megalith,megalithic industries,monolith,easter island,design,designer,phoenix,elixir,vim,tmux,nvim,neovim,development,software,engineering,software engineer,developer,front-end,front end,back-end,back end,server,ssh,secure shell,secure,shell,zsh,bash,sh,fish,z-shell
+title: "Weechat Setup With IRC, Bitlbee And Slack",
+tags: ["til", "weechat", "cli", "slack", "bitlbee", "dotfiles"],
 description: """
 Over the last several years, I've been using a consolidated online chat experience with weechat, a command-line interface IRC client that runs on all platforms (I'm specifically using it on macOS). I have it connected to my Digital Ocean droplet running bitlbee (for Google Hangouts) and ZNC (an IRC bouncer) and Slack (via wee-slack). I recently wiped my droplet and need to set all of that up again, so, I figured I'd take you along for the journey of installing all of the necessary tools and configuring everything.
 """

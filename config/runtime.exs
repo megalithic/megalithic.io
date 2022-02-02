@@ -46,19 +46,17 @@ if config_env() == :prod do
     System.get_env("FLY_APP_NAME") ||
       raise "FLY_APP_NAME not available"
 
-  host =
-    "#{app_name}.fly.dev" || System.get_env("PHX_HOST") || System.get_env("HOST") ||
-      "megalithic.io"
-
-  port = String.to_integer(System.get_env("PORT") || "4000")
+  host = System.get_env("HOST") || "megalithic.io"
 
   config :megalithic, MegalithicWeb.Endpoint,
+    # server: true,
     http: [
       port: System.get_env("PORT"),
       compress: true,
+      # ip: {0, 0, 0, 0, 0, 0, 0, 0},
       transport_options: [socket_opts: [:inet6]]
     ],
-    url: [scheme: "https", host: System.get_env("HOST"), port: 443],
+    url: [scheme: "https", host: host, port: 443],
     secret_key_base: secret_key_base
 
   # server: true,

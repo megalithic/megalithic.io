@@ -208,12 +208,12 @@
       }
     }
     .post {
-      @apply mt-10;
+      @apply mt-10 prose dark:prose-invert print:prose-print lg:prose-xl max-w-[100ch];
       .meta {
         @apply flex flex-wrap mt-2 space-x-4 mb-4 text-sm;
       }
       .content {
-        @apply mb-6 prose dark:prose-invert print:prose-print lg:prose-xl max-w-[100ch];
+        @apply mb-6;
       }
       .feedback {
         @apply block print:hidden;

@@ -10,14 +10,17 @@ To run this mug:
 - `bin/server`
 
 For dev mode: [`localhost:4002`](http://localhost:4002)
+
 For fly mode: [`megalithic.fly.dev`](https://megalithic.fly.dev)
+
+For live mode: [`megalithic.io`](https://megalithic.io)
 
 ### todo:
 
 - [ ] [Note](https://indieweb.org/note)
 - [ ] [POSSE](https://indieweb.org/POSSE)
 
-## refs:
+### refs:
 
 - [Conventional Commits][1]
 - [Elixir Style Guide][2]

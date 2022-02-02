@@ -15,6 +15,7 @@ import diff from "highlight.js/lib/languages/diff";
 import xml from "highlight.js/lib/languages/xml";
 import sql from "highlight.js/lib/languages/sql";
 import lua from "highlight.js/lib/languages/lua";
+import ini from "highlight.js/lib/languages/ini";
 import markdown from "highlight.js/lib/languages/markdown";
 
 hljs.registerLanguage("javascript", javascript);
@@ -29,6 +30,7 @@ hljs.registerLanguage("diff", diff);
 hljs.registerLanguage("html", xml);
 hljs.registerLanguage("sql", sql);
 hljs.registerLanguage("lua", lua);
+hljs.registerLanguage("ini", ini);
 hljs.registerLanguage("markdown", markdown);
 
 window.highlightAll = function (where = document) {

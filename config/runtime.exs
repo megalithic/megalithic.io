@@ -55,7 +55,7 @@ if config_env() == :prod do
     ],
     url: [scheme: "https", host: host, port: 443],
     secret_key_base: secret_key_base,
-    check_origin: ["megalithic.fly.dev", "//*.megalithic.io"]
+    check_origin: ["//megalithic.fly.dev", "//*.megalithic.io"]
 
   # server: true,
   # url: [host: host, port: 80],

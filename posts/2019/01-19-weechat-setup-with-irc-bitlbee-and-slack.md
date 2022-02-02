@@ -1,6 +1,6 @@
 %{
 title: "Weechat Setup With IRC, Bitlbee And Slack",
-tags: ["til", "weechat", "cli", "slack", "bitlbee", "dotfiles"],
+tags: ["weechat", "cli", "slack", "bitlbee", "dotfiles"],
 description: """
 Over the last several years, I've been using a consolidated online chat experience with weechat, a command-line interface IRC client that runs on all platforms (I'm specifically using it on macOS). I have it connected to my Digital Ocean droplet running bitlbee (for Google Hangouts) and ZNC (an IRC bouncer) and Slack (via wee-slack). I recently wiped my droplet and need to set all of that up again, so, I figured I'd take you along for the journey of installing all of the necessary tools and configuring everything.
 """

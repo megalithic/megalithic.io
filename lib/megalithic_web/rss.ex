@@ -47,7 +47,7 @@ defmodule MegalithicWeb.Rss do
     {:ok, ndt} = NaiveDateTime.new(date, ~T[00:00:00])
 
     ndt
-    |> DateTime.from_naive!("America/New_York")
+    |> DateTime.from_naive!("America/Chicago")
     |> Calendar.strftime("%a, %d %b %Y %H:%M:%S %z")
   end
 

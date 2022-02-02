@@ -5,7 +5,9 @@
 /* This file is for your main application CSS */
 
 @import "./base.css";
-@import "liveview.css";
+@import "./liveview.css";
+@import "./syntax.css";
+
 /* @import "header.css"; */
 /* @import "footer.css"; */
 

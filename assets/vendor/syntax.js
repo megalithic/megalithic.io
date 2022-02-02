@@ -1,4 +1,8 @@
+// import hljs from "highlight.js";
+// import "highlight.js/styles/github.css";
+
 import hljs from "highlight.js/lib/core";
+
 import javascript from "highlight.js/lib/languages/javascript";
 import shell from "highlight.js/lib/languages/shell";
 import bash from "highlight.js/lib/languages/bash";

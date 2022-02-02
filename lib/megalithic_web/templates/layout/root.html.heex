@@ -11,6 +11,8 @@
     <%= csrf_meta_tag() %>
     <%= MegalithicWeb.SEO.meta(assigns) %>
     <%= live_title_tag(assigns[:page_title] || "megalithic industries", suffix: " · megalithic industries") %>
+    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/default.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/github.min.css">
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")} />
     <%= if Application.get_env(:megalithic, :app_env) == :prod do %>
       <script

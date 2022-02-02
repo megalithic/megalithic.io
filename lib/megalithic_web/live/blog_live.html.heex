@@ -1,4 +1,5 @@
 <%= if @live_action == :index do %>
+  <div class="posts">
   <%= for post <- @posts do %>
     <div id={"post-#{post.id}"} class="">
       <h2 class="">
@@ -42,9 +43,10 @@
       </div>
     </div>
   <% end %>
+  </div>
 <% end %>
 <%= if @live_action == :show do %>
-  <p class="post-nav">
+  <p class="nav">
     <%= live_redirect to: Routes.blog_path(@socket, :index), class: "" do %>
       <svg
         class="-ml-0.5 mr-2 w-5 h-5 flex"
@@ -63,13 +65,12 @@
       all posts
     <% end %>
   </p>
-  <article id={"post-#{@post.id}"}>
-    <h2 class="">
+  <article id={"post-#{@post.id}"} class="post">
+    <h2>
       <%= @post.title %>
     </h2>
-    <p>Published on <%= Date.to_iso8601(@post.date) %>
-    </p>
-    <div class="">
+    <p>Published on <%= Date.to_iso8601(@post.date) %> </p>
+    <div class="meta">
       <%= if @post.original_url do %>
         <div>
           <%= outbound_link("Original Publishing",
@@ -92,11 +93,11 @@
         </div>
       <% end %>
     </div>
-    <div id={"post-content-#{@post.id}"} phx-hook="Highlight" class="" phx-update="ignore">
+    <div id={"post-content-#{@post.id}"} phx-hook="Highlight" phx-update="ignore" class="content">
       <%= raw(@post.body) %>
     </div>
   </article>
-  <div class="block print:hidden">
+  <div class="feedback">
     <hr class="" />
     <p class="mt-4 mb-10">
       Share with me your thoughts. You can <%= outbound_link("tweet me at @megalithic", to: "https://twitter.com/megalithic", class: "link") %>.

@@ -8,6 +8,8 @@
   body {
     @apply h-full
     scroll-smooth
+    antialiased
+    leading-tight
     dark:bg-gray-900
     dark:text-gray-300
     text-base;
@@ -158,13 +160,26 @@
     grid-area: main;
     @apply m-4;
 
-    .post-nav {
-      a {
-        @apply no-underline flex  items-center text-center align-middle;
+    .post {
+      /* @apply inline-flex items-center px-2 py-1 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md dark:bg-gray-700 dark:text-gray-300 text-gray-700 bg-gray-300 dark:hover:bg-gray-600 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 print:hidden; */
 
-        svg {
-          @apply inline-flex items-center text-center justify-center align-middle;
+      .meta {
+        @apply flex flex-wrap mt-2 space-x-4 mb-12 text-sm;
+      }
+      .nav {
+        a {
+          @apply no-underline flex  items-center text-center align-middle;
+
+          svg {
+            @apply inline-flex items-center text-center justify-center align-middle;
+          }
         }
+      }
+      .content {
+        /* @apply mb-6 prose dark:prose-invert print:prose-print lg:prose-xl; */
+      }
+      .feedback {
+        @apply block print:hidden;
       }
     }
   }

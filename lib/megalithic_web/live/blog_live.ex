@@ -19,7 +19,7 @@ defmodule MegalithicWeb.BlogLive do
     {:ok,
      socket
      |> assign(:posts, posts)
-     |> assign(:page_title, "Blog"), temporary_assigns: [posts: []]}
+     |> assign(:page_title, "blog"), temporary_assigns: [posts: []]}
   end
 
   def handle_params(_params, _session, socket) do

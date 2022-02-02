@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "deploy": "NODE_ENV=production tailwindcss --postcss --minify -i css/app.css -o ../priv/static/assets/app.css"
+    "deploy": "cd assets; NODE_ENV=production tailwindcss --postcss --minify -i css/app.css -o ../priv/static/assets/app.css"
   },
   "devDependencies": {
     "autoprefixer": "latest",

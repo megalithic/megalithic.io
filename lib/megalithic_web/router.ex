@@ -33,7 +33,9 @@ defmodule MegalithicWeb.Router do
 
     live "/", PageLive, :home
     live "/blog", BlogLive, :index, as: :blog
+    live "/thoughts", BlogLive, :index, as: :blog
     live "/blog/:id", BlogLive, :show, as: :blog
+    live "/thoughts/:id", BlogLive, :index, as: :blog
     live "/about", PageLive, :about
   end
 

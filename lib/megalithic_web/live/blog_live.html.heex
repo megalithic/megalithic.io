@@ -33,7 +33,7 @@
           </dd>
         <% end %>
         <dd class="reading-time">
-          <%= post.reading_time %> m read
+          <%= post.reading_time %>min to read
         </dd>
         <%= if Enum.any?(post.tags) do %>
           <dd class="tags">
@@ -80,7 +80,7 @@
         </dd>
       <% end %>
         <dd class="reading-time">
-        <%= @post.reading_time %> m read
+        <%= @post.reading_time %>min to read
       </dd>
       <%= if @readers > 1 do %>
         <dd class="current-readers">

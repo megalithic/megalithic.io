@@ -5,6 +5,7 @@ defmodule MegalithicWeb.ErrorViewTest do
   import Phoenix.View
 
   test "renders 500.html" do
-    assert render_to_string(MegalithicWeb.ErrorView, "500.html", []) == "Internal Server Error"
+    assert render_to_string(MegalithicWeb.ErrorView, "500.html", []) ==
+             "Yoinks, somethings broke! (internal server error)"
   end
 end

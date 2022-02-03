@@ -13,11 +13,13 @@ defmodule Megalithic.Blog do
 
   # The @posts variable is first defined by NimblePublisher.
   # Let's further modify it by sorting all posts by descending date.
-  @published_posts @posts |> Enum.sort_by(& &1.date, {:desc, Date}) |> Enum.filter(& &1.published)
   @all_posts Enum.sort_by(@posts, & &1.date, {:desc, Date})
+  @published_posts @all_posts
+                   |> Enum.sort_by(& &1.date, {:desc, Date})
+                   |> Enum.filter(& &1.published)
 
   # Let's also get all tags
-  @tags @posts |> Enum.flat_map(& &1.tags) |> Enum.uniq() |> Enum.sort()
+  @tags @published_posts |> Enum.flat_map(& &1.tags) |> Enum.uniq() |> Enum.sort()
 
   # And finally export them
   def all_posts, do: @all_posts

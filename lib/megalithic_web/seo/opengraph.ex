@@ -42,7 +42,6 @@ defmodule MegalithicWeb.SEO.OpenGraph do
     :reading_time,
     :title,
     article_section: "Software Development",
-    # site = twitter handle representing the overall site.
     locale: "en_US",
     site: "@megalithic",
     site_title: @generic.title,

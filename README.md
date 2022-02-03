@@ -24,6 +24,7 @@ For live mode: [`megalithic.io`](https://megalithic.io)
 
 - [Conventional Commits][1]
 - [Elixir Style Guide][2]
+- [GitHub Actions and Workflow things](https://docs.github.com/en/actions/managing-workflow-runs/skipping-workflow-runs)
 
 [1]: https://www.conventionalcommits.org/en/v1.0.0/
 [2]: https://github.com/lexmag/elixir-style-guide

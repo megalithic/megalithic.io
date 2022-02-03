@@ -48,7 +48,6 @@ if config_env() == :prod do
 
   config :megalithic, MegalithicWeb.Endpoint,
     server: true,
-    force_ssl: [rewrite_on: [:x_forwarded_proto]],
     http: [
       port: System.get_env("PORT") || 4000,
       compress: true,

@@ -71,9 +71,9 @@ Last thing to do is setup weechat to connect to your ZNC server for all your IRC
 
 We're going to assume you already have weechat installed on your OS of choice (for macOS: `brew install weechat`).
 
-From within weechat, we're going to add a server for freenode, and set it up to auto-connect for us..
+From within weechat, we're going to add a server for freenode, and set it up to auto-connect for us (from weechat)..
 
-```
+```bash
 /server add freenode <droplet_ip>/<port_for_znc> -autoconnect
 /connect freenode
 /save
@@ -142,9 +142,9 @@ AuthMode = Open
 
 Configuration of bitlbee and purple-hangouts should be done, so now we just need to connect it up to weechat. We're going to assume you already have weechat installed on your OS of choice (for macOS: `brew install weechat`).
 
-We'll setup a hangouts server (could be called anything you want). Next we'll connect to it, then we'll register a super_secret_password. Lastly we'll setup weechat to auto log us in each time.
+We'll setup a hangouts server (could be called anything you want). Next we'll connect to it, then we'll register a super_secret_password. Lastly we'll setup weechat to auto log us in each time (from weechat).
 
-```
+```bash
 /server add hangouts <droplet_ip>/<port_for_bitlbee> -autoconnect
 /connect hangouts
 register <super_secret_password>
@@ -152,9 +152,9 @@ register <super_secret_password>
 /save
 ```
 
-Now we need to setup Google Hangouts for bitlbee/purple. Let's do that now, while we have the &bitlbee buffer selected in weechat.
+Now we need to setup Google Hangouts for bitlbee/purple. Let's do that now, while we have the &bitlbee buffer selected in weechat (from weechat).
 
-```
+```bash
 acc add hangouts your-gmail-account@gmail.com
 acc hangouts on
 ```

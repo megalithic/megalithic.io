@@ -6,7 +6,7 @@
         <priority>0.5</priority>
     </url>
     <url>
-        <loc><%= Routes.page_url(@conn, :projects) %></loc>
+        <loc><%= Routes.page_url(@conn, :about) %></loc>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>

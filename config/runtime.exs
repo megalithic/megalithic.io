@@ -44,9 +44,11 @@ if config_env() == :prod do
 
   app_name = System.get_env("FLY_APP_NAME") || raise "FLY_APP_NAME not available"
   host = System.get_env("HOST") || "megalithic.io" || "#{app_name}.fly.dev"
+  IO.puts("host used: #{inspect(host)}")
 
   config :megalithic, MegalithicWeb.Endpoint,
     server: true,
+    force_ssl: [rewrite_on: [:x_forwarded_proto]],
     http: [
       port: System.get_env("PORT") || 4000,
       compress: true,

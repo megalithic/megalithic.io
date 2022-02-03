@@ -19,6 +19,14 @@ For live mode: [`megalithic.io`](https://megalithic.io)
 
 - [ ] [Note](https://indieweb.org/note)
 - [ ] [POSSE](https://indieweb.org/POSSE)
+- [ ] [Webmention.io](https://webmention.io/)
+- [ ] Tag linking
+- [ ] Finish logo redesign
+- [ ] Clean up stylesheets
+- [ ] Finalize color/brand palette
+- [ ] Build out tailwind config
+- [ ] Determine strategy for image/video uploading and linking to posts
+- [ ] Determine SEO for if we need keywords in the meta/opengraph
 
 ### refs:
 

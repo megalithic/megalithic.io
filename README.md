@@ -27,6 +27,9 @@ For live mode: [`megalithic.io`](https://megalithic.io)
 - [ ] Build out tailwind config
 - [ ] Determine strategy for image/video uploading and linking to posts
 - [ ] Determine SEO for if we need keywords in the meta/opengraph
+- [ ] add [ipa reader for megalithic industries](http://ipa-reader.xyz/?text=%CB%88m%C9%9B%C9%A1%C9%99l%C9%AA%CE%B8%C9%AAk%20%CB%88%C9%AAnd%C9%99st%C9%B9iz)
+- [ ] add [ipa reader for seth messer](http://ipa-reader.xyz/?text=s%C9%9B%CE%B8%20%CB%88m%C9%9Bs%C9%90)
+- [ ] work on about page; use my goofy hiking photo
 
 ### refs:
 

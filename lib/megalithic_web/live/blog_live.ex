@@ -1,18 +1,21 @@
 defmodule MegalithicWeb.BlogLive do
   use MegalithicWeb, :live_view
 
+  @impl true
   def mount(%{"id" => id, "preview" => "true"}, _session, socket) do
     id
     |> Megalithic.Blog.get_post_preview_by_id!()
     |> show(socket)
   end
 
+  @impl true
   def mount(%{"id" => id}, _session, socket) do
     id
     |> Megalithic.Blog.get_post_by_id!()
     |> show(socket)
   end
 
+  @impl true
   def mount(_params, _session, socket) do
     posts = Megalithic.Blog.published_posts()
 
@@ -22,6 +25,7 @@ defmodule MegalithicWeb.BlogLive do
      |> assign(:page_title, "blog"), temporary_assigns: [posts: []]}
   end
 
+  @impl true
   def handle_params(_params, _session, socket) do
     {:noreply, socket}
   end
@@ -66,6 +70,7 @@ defmodule MegalithicWeb.BlogLive do
     assign(socket, :readers, readers)
   end
 
+  @impl true
   def handle_info(
         %{event: "presence_diff", payload: %{joins: joins, leaves: leaves}},
         %{assigns: %{readers: count}} = socket

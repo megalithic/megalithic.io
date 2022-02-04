@@ -31,6 +31,7 @@ To run this mug:
 - [ ] add [ipa reader for seth messer](http://ipa-reader.xyz/?text=s%C9%9B%CE%B8%20%CB%88m%C9%9Bs%C9%90)
 - [ ] work on about page; use my goofy hiking photo
 - [ ] tests
+- [ ] parse links from markdown to be external or not, so that they can be linked/rendered uniquely in liveview
 
 ### refs:
 

@@ -15,7 +15,7 @@ year or so). It dawned on me that _this_ is the way.
 
 I am one who wants to build tools to help bring efficiencies to the building of things, but really, I just want to build the tools, and keep iterating on the tools. My website suffers from this same trait. I've long wanted to redesign and rebuild my website, but I just end up spending time sharpening the axe instead of actually getting the axe out and using it.
 
-The increase in _TIL_ blog posts and websites have really been inspiration for me to just design and build (in public), and have a way to just _write_ (even if it really is a simple idea, that, potentially others might find useful).
+The increase in [_TIL_](https://dictionary.cambridge.org/us/dictionary/english/til) blog posts and websites have really been inspiration for me to just design and build (in public), and have a way to just _write_ (even if it really is a simple idea, that, potentially others might find useful).
 
 So, in an unspoken challenge from [@evantravers](https://evantravers.com) I will be pushing updates to the site, along with blog posts. It doesn't matter what the website change is, as long as there is something written about to go along with it.
 

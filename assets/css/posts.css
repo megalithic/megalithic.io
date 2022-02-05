@@ -11,7 +11,7 @@
     }
 
     .post {
-      @apply mt-10 prose dark:prose-invert print:prose-print lg:prose-xl max-w-[1536px];
+      @apply mt-10 prose dark:prose-invert print:prose-print lg:prose-xl max-w-[110ch];
       .meta {
         @apply flex flex-wrap mt-2 space-x-4 mb-4 text-sm;
       }

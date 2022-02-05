@@ -16,17 +16,18 @@ By the end of this post, you'll have a fully working weechat CLI interface setup
 
 This article assumes that you have already [setup and secured](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-18-04) a [Digital Ocean](https://m.do.co/c/6abe22c9c487) droplet.
 
-## ZNC
+### ZNC
 
 Let's install [ZNC](https://wiki.znc.in/ZNC) and setup a user to run ZNC under. This also generates a config file for you. It will walk you through some defaults, and let you fill in important details. As part of those details, let's go ahead and setup [freenode](https://freenode.net) as our initial IRC server, and remember the port you set for ZNC (we'll assume `5000`).
 
 #### Installation
 
 ```bash
-cd ~
-sudo apt install -y znc znc-dev
-sudo useradd --create-home -d /var/lib/znc --system --shell /sbin/nologin --comment "User to run ZNC daemon" --user-group znc
-sudo -u znc /usr/bin/znc --datadir=/var/lib/znc --makeconf
+cd ~;
+sudo apt install -y znc znc-dev;
+sudo useradd --create-home -d /var/lib/znc --system --shell \
+  /sbin/nologin --comment "User to run ZNC daemon" --user-group znc;
+sudo -u znc /usr/bin/znc --datadir=/var/lib/znc --makeconf;
 ```
 
 Before we continue with setting up ZNC configs, let's make sure it auto-launches anytime our droplet restarts..
@@ -51,8 +52,8 @@ WantedBy=multi-user.target
 Reload the daemon and enable ZNC service
 
 ```bash
-sudo systemctl daemon-reload
-sudo systemctl enable znc
+sudo systemctl daemon-reload;
+sudo systemctl enable znc;
 ```
 
 #### Configuration
@@ -73,7 +74,7 @@ We're going to assume you already have weechat installed on your OS of choice (f
 
 From within weechat, we're going to add a server for freenode, and set it up to auto-connect for us (from weechat)..
 
-```bash
+```ini
 /server add freenode <droplet_ip>/<port_for_znc> -autoconnect
 /connect freenode
 /save
@@ -81,20 +82,22 @@ From within weechat, we're going to add a server for freenode, and set it up to 
 
 Assuming you setup the `nickserv` module in ZNC, as well as some initial channels to connect to, it should just auto-connect and auto-join freenode and those channels. We're done with ZNC/IRC.
 
-## Bitlbee
+### Bitlbee
 
-Now that we have IRC things taken care of with ZNC, let's install [bitlbee](https://www.bitlbee.org) and libpurple so that we can get Google Hangouts working with weechat. We'll need to use Mercurial for version control for connecting the dots between libpurple and hangouts. Finally, we'll build the [purple-hangouts](https://bitbucket.org/EionRobb/purple-hangouts/overview) project.
+Now that we have IRC things taken care of with ZNC, let's install [bitlbee](https://www.bitlbee.org) and libpurple so that we can get Google Hangouts working with weechat. We'll need to use Mercurial for version control for connecting the dots between libpurple and hangouts. Finally, we'll build the [purple-hangouts](https://github.com/EionRobb/purple-hangouts) project.
 
 #### Installation
 
 ```bash
-cd ~
-sudo mkdir -p /var/lib/bitlbee
-sudo apt-get install -y python-pip python-potr bitlbee-common bitlbee-libpurple bitlbee-plugin-otr libpurple-dev libjson-glib-dev libglib2.0-dev libprotobuf-c-dev protobuf-c-compiler mercurial make
-mkdir src
-cd src
-hg clone https://bitbucket.org/EionRobb/purple-hangouts/ && cd purple-hangouts;
-make && sudo make install
+cd ~;
+sudo mkdir -p /var/lib/bitlbee;
+sudo apt-get install -y libpurple-dev libjson-glib-dev libglib2.0-dev \
+  libprotobuf-c-dev protobuf-c-compiler git make;
+mkdir src;
+cd src;
+git clone https://github.com/EionRobb/purple-hangouts \
+  && cd purple-hangouts;
+make && sudo make install;
 ```
 
 Before we get to configuring bitlbee further, let's make sure it relaunches upon restarting our droplet.
@@ -167,7 +170,7 @@ For bitlbee, while you're still in the bitlbee buffer: `save`
 
 For weechat, from any buffer: `/save`
 
-## Slack
+### Slack
 
 The best way to connect to your various [Slack](https://slack.com/) groups is with a python weechat plugin called wee-slack. It supports real-time chat via websockets. This means that you will get a TON of amazing features like, typing notifications, emoji reaction support, interacting with your status, threads, and [so much more](https://github.com/wee-slack/wee-slack#features).
 
@@ -197,7 +200,7 @@ That does it folks!
 
 You now have a working ZNC IRC bouncer, and bitlbee server setup on your own [Digital Ocean](https://m.do.co/c/6abe22c9c487) droplet. You also now have weechat setup on your local machine, complete with connectivity to IRC freenode via ZNC, Google Hangouts via bitlbee, and to Slack via wee-slack.
 
-If you'd like to check out a fully working weechat setup, feel free to [peruse my dotfiles](https://github.com/megalithic/dotfiles/tree/master/weechat). This is setup for my purposes, but should give a really good idea as to what all is possible.
+If you'd like to check out a fully working weechat setup, feel free to [peruse my dotfiles](https://github.com/megalithic/dotfiles/tree/main/config/weechat). This is setup for my purposes, but should give a really good idea as to what all is possible.
 
 Happy CLI chatting!
 
@@ -209,7 +212,7 @@ Happy CLI chatting!
 - [ZNC](https://wiki.znc.in/ZNC)
 - [Freenode](https://freenode.net)
 - [Bitlbee](https://bitlbee.org)
-- [purple-hangouts](https://bitbucket.org/EionRobb/purple-hangouts/overview)
+- [purple-hangouts](https://github.com/EionRobb/purple-hangouts)
 - [wee-slack](https://github.com/wee-slack/wee-slack)
 - [Slack](https://slack.com)
-- [My dotfiles](https://github.com/megalithic/dotfiles/tree/master/weechat)
+- [My dotfiles](https://github.com/megalithic/dotfiles/tree/main/config/weechat)

@@ -2,14 +2,12 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* This file is for your main application CSS */
-
-@import "./base.css";
 @import "./liveview.css";
+@import "./fonts.css";
+@import "./base.css";
+@import "./page.css";
+@import "./posts.css";
 @import "./syntax.css";
-
-/* @import "header.css"; */
-/* @import "footer.css"; */
 
 /* REF: https://www.zachleat.com/web/external-link-favicons/ */
 /* a[href*="twitter.com"]:before { */

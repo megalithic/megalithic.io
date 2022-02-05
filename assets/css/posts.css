@@ -1,0 +1,31 @@
+@layer components {
+  .inner {
+    .post-nav {
+      a {
+        @apply no-underline flex items-center text-center align-middle;
+
+        svg {
+          @apply inline-flex items-center text-center justify-center align-middle;
+        }
+      }
+    }
+    .post {
+      @apply mt-10 prose dark:prose-invert print:prose-print lg:prose-xl max-w-[100ch];
+      .meta {
+        @apply flex flex-wrap mt-2 space-x-4 mb-4 text-sm;
+      }
+      .content {
+        @apply mb-6;
+
+        pre code {
+          &.sh {
+            @apply before:content-["❯_"] before:select-none before:text-[#66d9ef];
+          }
+        }
+      }
+      .feedback {
+        @apply block print:hidden;
+      }
+    }
+  }
+}

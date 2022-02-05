@@ -25,8 +25,8 @@ I knew I'd need a quick way, that fits into my current workflow, to encourage me
 
 #### Introducing [`til`](https://github.com/megalithic/dotfiles/blob/main/bin/til) ->
 
-```bash
-$ til Driven by TILs
+```sh
+til Driven by TILs
 ```
 
 It's really that simple; I just call my script, it takes the rest of the string you type as a parameter, and ultimately builds out the elixir-based frontmatter that [NimblePublisher](https://github.com/dashbitco/nimble_publisher) requires.

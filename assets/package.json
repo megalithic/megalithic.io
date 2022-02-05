@@ -13,6 +13,7 @@
     "tailwindcss": "latest"
   },
   "dependencies": {
-    "highlight.js": "^11.4.0"
+    "highlight.js": "^11.4.0",
+    "shiki": "^0.10.0"
   }
 }

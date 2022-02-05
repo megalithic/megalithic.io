@@ -23,20 +23,13 @@ import "phoenix_html";
 // Establish Phoenix Socket and LiveView configuration.
 import { Socket } from "phoenix";
 import { LiveSocket } from "phoenix_live_view";
+import Hooks from "./hooks";
 import topbar from "../vendor/topbar";
-import "../vendor/syntax";
 import "./theme";
-
-let hooks = {};
-hooks.Highlight = {
-  mounted() {
-    window.highlightAll(this.el);
-  },
-};
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content");
 let liveSocket = new LiveSocket("/live", Socket, {
-  hooks: hooks,
+  hooks: Hooks,
   params: { _csrf_token: csrfToken },
 });
 

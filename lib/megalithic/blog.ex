@@ -5,8 +5,8 @@ defmodule Megalithic.Blog do
     build: Megalithic.Blog.Post,
     from: "posts/**/*.md",
     as: :posts,
-    highlighters: [:makeup_elixir],
-    earmark_options: [postprocessor: &Megalithic.Blog.Markdown.post_processor/1]
+    # earmark_options: [postprocessor: &Megalithic.Blog.Markdown.post_processor/1],
+    highlighters: [:makeup_elixir]
 
   defmodule NotFoundError do
     defexception [:message, plug_status: 404]

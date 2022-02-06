@@ -2,44 +2,44 @@ defmodule MegalithicWeb.BlogLive do
   use MegalithicWeb, :live_view
 
   @impl true
-  def mount(%{"id" => id, "preview" => "true"}, _session, socket) do
+  def mount(_params, _session, socket) do
+    {:ok, socket, temporary_assigns: [posts: [], relevant_posts: [], post: nil]}
+  end
+
+  @impl true
+  def handle_params(params, _url, socket) do
+    {:noreply, apply_action(socket, socket.assigns.live_action, params)}
+  end
+
+  defp apply_action(socket, :show, %{"id" => id, "preview" => "true"}) do
     id
     |> Megalithic.Blog.get_post_preview_by_id!()
     |> show(socket)
   end
 
-  @impl true
-  def mount(%{"id" => id}, _session, socket) do
+  defp apply_action(socket, :show, %{"id" => id}) do
     id
     |> Megalithic.Blog.get_post_by_id!()
     |> show(socket)
   end
 
-  @impl true
-  def mount(_params, _session, socket) do
+  defp apply_action(socket, :index, _params) do
     posts = Megalithic.Blog.published_posts()
 
-    {:ok,
-     socket
-     |> assign(:posts, posts)
-     |> assign(:page_title, "blog"), temporary_assigns: [posts: []]}
-  end
-
-  @impl true
-  def handle_params(_params, _session, socket) do
-    {:noreply, socket}
+    socket
+    |> assign(:posts, posts)
+    |> assign(:page_title, "blog")
   end
 
   def show(post, socket) do
-    {:ok,
-     socket
-     |> assign(:post, post)
-     |> maybe_assign_canonical_url(post)
-     |> track_readers(post)
-     |> assign(:relevant_posts, relevant_posts(post))
-     |> assign(:breadcrumbs, MegalithicWeb.SEO.Breadcrumbs.build(post))
-     |> assign(:og, MegalithicWeb.SEO.OpenGraph.build(post))
-     |> assign(:page_title, post.title), temporary_assigns: [relevant_posts: [], post: nil]}
+    socket
+    |> assign(:post, post)
+    |> maybe_assign_canonical_url(post)
+    |> track_readers(post)
+    |> assign(:relevant_posts, relevant_posts(post))
+    |> assign(:breadcrumbs, MegalithicWeb.SEO.Breadcrumbs.build(post))
+    |> assign(:og, MegalithicWeb.SEO.OpenGraph.build(post))
+    |> assign(:page_title, post.title)
   end
 
   defp maybe_assign_canonical_url(socket, %{original_url: url}) when url not in ["", nil] do

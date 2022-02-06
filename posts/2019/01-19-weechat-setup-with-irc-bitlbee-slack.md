@@ -147,10 +147,10 @@ Configuration of bitlbee and purple-hangouts should be done, so now we just need
 
 We'll setup a hangouts server (could be called anything you want). Next we'll connect to it, then we'll register a super_secret_password. Lastly we'll setup weechat to auto log us in each time (from weechat).
 
-```bash
+```ini
 /server add hangouts <droplet_ip>/<port_for_bitlbee> -autoconnect
 /connect hangouts
-register <super_secret_password>
+/register <super_secret_password>
 /set irc.server.hangouts.command "/msg &bitlbee /OPER identify <super_secret_password>"
 /save
 ```

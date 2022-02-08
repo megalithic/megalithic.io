@@ -32,6 +32,8 @@ To run this mug:
 - [ ] work on about page; use my goofy hiking photo
 - [ ] tests
 - [ ] parse links from markdown to be external or not, so that they can be linked/rendered uniquely in liveview
+- [ ] Google Tag Manager
+- [ ] shiki instead of highlight.js?
 
 ### refs:
 

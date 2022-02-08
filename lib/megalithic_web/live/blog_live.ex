@@ -1,6 +1,8 @@
 defmodule MegalithicWeb.BlogLive do
   use MegalithicWeb, :live_view
 
+  alias MegalithicWeb.Components.SVG
+
   @impl true
   def mount(_params, _session, socket) do
     {:ok, socket, temporary_assigns: [posts: [], relevant_posts: [], post: nil]}

@@ -3,22 +3,13 @@
   <%= for post <- @posts do %>
     <div id={"post-#{post.id}"} class="post">
       <h2 class="title">
+        <span class="inline-flex items-center gap-2"><SVG.newspaper class="text-mega-orange" /></span>
         <%= live_redirect(post.title,
           to: Routes.blog_path(@socket, :show, post.id),
           class:
             "transition-colors duration-150 border-transparent border-b-4 focus:border-brand-500 hover:border-accent-500 no-underline"
         ) %>
       </h2>
-      <p class="description">
-        <%= raw(post.description) %>
-      </p>
-      <p class="">
-        <%= live_redirect("Read more...",
-          to: Routes.blog_path(@socket, :show, post.id),
-          class:
-            "transition-colors duration-150 border-b-4 focus:border-brand-500 hover:border-accent-500 no-underline"
-        ) %>
-      </p>
       <dl class="meta">
         <dt>
           <%= Date.to_iso8601(post.date) %>
@@ -41,6 +32,16 @@
           </dd>
         <% end %>
       </dl>
+      <p class="description">
+        <%= raw(post.description) %>
+      </p>
+      <p class="">
+        <%= live_redirect("Read more...",
+          to: Routes.blog_path(@socket, :show, post.id),
+          class:
+            "transition-colors duration-150 border-b-4 focus:border-brand-500 hover:border-accent-500 no-underline"
+        ) %>
+      </p>
     </div>
   <% end %>
   </div>
@@ -98,7 +99,6 @@
     </div>
   </article>
   <div class="feedback">
-    <hr class="" />
     <p class="mt-4 mb-10">
       I'd love to hear from you, <%= outbound_link("get @ me on twitter", to: "https://twitter.com/megalithic", class: "link") %>.
       <%= if @post.discussion_url do %> or <%= outbound_link("leave a comment at GitHub", class: "link", to: @post.discussion_url) %><% end %>

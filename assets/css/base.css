@@ -10,18 +10,18 @@
     scroll-smooth
     antialiased
     leading-tight
-    dark:bg-gray-900
-    dark:text-gray-300
+    dark:bg-mega-bg
+    dark:text-mega-grey
     text-base;
   }
 
   .link {
-    @apply text-brand-700 no-underline transition-colors duration-150 ease-in-out border-accent-500 hover:text-brand-500 hover:border-accent-400;
+    @apply text-mega-blue no-underline transition-colors duration-150 ease-in-out border-mega-blue hover:text-mega-red hover:border-mega-teal;
     border-bottom-width: 1px;
   }
 
   .dark .link:hover {
-    @apply border-b border-accent-700;
+    @apply border-b border-mega-teal;
     filter: brightness(1.5);
   }
 
@@ -44,7 +44,7 @@
   .dark .link:visited,
   .dark .prose a:visited,
   .dark .prose a:visited code {
-    @apply text-purple-200;
+    @apply text-mega-purple;
   }
 
   .dark .link:hover,
@@ -54,9 +54,9 @@
   }
 
   a {
-    @apply text-blue-300
+    @apply text-mega-blue
       underline
-      transition-colors hover:text-blue-500 duration-300;
+      transition-colors hover:text-mega-dark_blue duration-300;
 
     /* NOTE: the link class is applied when using the <.link> component */
     &.link.truncate {
@@ -79,6 +79,7 @@
   }
 
   h1 {
+    font-family: "Bebas Neue";
     @apply text-4xl my-5 font-extrabold;
   }
   h2 {
@@ -95,5 +96,26 @@
   }
   h6 {
     @apply text-sm;
+  }
+
+  /* https://codemyui.com/theoutline-squiggle-link-hover-effect/ */
+  @responsive {
+    @variants hover {
+      .squiggle-orange {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(-20px);}to {transform:translateX(0);}}%3C/style%3E%3Cpath fill='none' stroke='%23ff9800' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+        background-position: 0 100%;
+        background-size: auto 3px;
+        background-repeat: repeat-x;
+        text-decoration: none;
+      }
+
+      .squiggle-blue {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(-20px);}to {transform:translateX(0);}}%3C/style%3E%3Cpath fill='none' stroke='%23BFDBFF' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+        background-position: 0 100%;
+        background-size: auto 3px;
+        background-repeat: repeat-x;
+        text-decoration: none;
+      }
+    }
   }
 }

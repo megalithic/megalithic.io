@@ -7,6 +7,7 @@ defmodule MegalithicWeb.Components.Link do
   %{
     label: String.t(),
     class: String.t(),
+    active: boolean,
     as: ["a", "live_patch", "live_redirect"],
   }
   ```

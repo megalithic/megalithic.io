@@ -1,6 +1,6 @@
-<%= render("header.html", assigns) %>
+<%= live_component MegalithicWeb.Components.Header, id: "header_component" %>
 
-<main class="main-content" role="main">
+<main class="container main-content" role="main">
   <p class="alert alert-info" role="alert" phx-click="lv:clear-flash" phx-value-key="info"><%= live_flash(@flash, :info) %></p>
   <p class="alert alert-danger" role="alert" phx-click="lv:clear-flash" phx-value-key="error"><%= live_flash(@flash, :error) %></p>
 
@@ -8,3 +8,5 @@
     <%= @inner_content %>
   </div>
 </main>
+
+<%= live_component MegalithicWeb.Components.Footer, id: "footer_component" %>

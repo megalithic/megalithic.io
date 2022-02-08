@@ -43,7 +43,7 @@ defmodule MegalithicWeb.Components.Footer do
               <SVG.rss_small />
             <% end %>
           </li>
-          <li>
+          <li class="hidden">
             <%= outbound_link to: "https://plausible.io/megalithic.io", title: "Plausible" do %>
               <span class="sr-only">
                 Analytics

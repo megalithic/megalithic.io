@@ -24,7 +24,7 @@ defmodule MegalithicWeb.Components.Header do
       </nav>
       <nav class="secondary">
         <ul>
-          <li>
+          <li class="hidden">
             <button id="theme-toggle" type="button" class="theme-toggle-button">
               <SVG.theme_toggle />
             </button>
@@ -53,7 +53,7 @@ defmodule MegalithicWeb.Components.Header do
               <SVG.rss_small />
             <% end %>
           </li>
-          <li>
+          <li class="hidden">
             <%= outbound_link to: "https://plausible.io/megalithic.io", title: "Plausible" do %>
               <span class="sr-only">
                 Analytics

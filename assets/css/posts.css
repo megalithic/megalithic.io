@@ -14,7 +14,7 @@
     }
 
     .post {
-      @apply mt-10 prose dark:prose-invert print:prose-print lg:prose-xl max-w-[110ch];
+      @apply mt-6 prose dark:prose-invert print:prose-print lg:prose-xl max-w-[110ch];
 
       h2.title {
         @apply mb-4 flex align-middle;

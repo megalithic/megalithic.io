@@ -10,6 +10,7 @@
     <%= csrf_meta_tag() %>
     <%= MegalithicWeb.SEO.meta(assigns) %>
     <%= live_title_tag(assigns[:page_title] || "megalithic industries", suffix: " · megalithic industries") %>
+    <%= render(MegalithicWeb.LayoutView, "_icons.html", assigns) %>
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")} />
     <%= if Application.get_env(:megalithic, :app_env) == :prod do %>
       <script

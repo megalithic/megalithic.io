@@ -1,70 +1,188 @@
 @layer components {
   .header {
     grid-area: header;
-    @apply py-8 px-16 bg-mega-bg1 flex justify-start items-center;
+    @apply bg-mega-bg1;
+
+    .container {
+      @apply flex
+      py-2
+      sm:pt-4
+      sm:pb-12
+      justify-start
+      relative
+      flex-1
+      items-center;
+    }
 
     .logo {
-      @apply h-[120px] w-[120px] inline-flex;
+      @apply hidden sm:inline-flex
+      ml-2 h-20 w-20 sm:h-[120px] sm:w-[120px] sm:ml-2;
     }
 
     nav.primary {
-      @apply ml-6 flex-1;
+      @apply ml-6
+      flex
+      sm:block
+      flex-1;
 
       h1 {
-        @apply m-0 mr-10 block;
+        @apply m-0
+        flex
+        flex-1
+        align-middle
+        items-center
+        justify-start
+        sm:block
+        mr-10;
 
         a {
-          @apply no-underline text-mega-grey2;
+          @apply no-underline
+          text-mega-grey2;
         }
       }
 
       ul {
-        @apply flex mt-1;
+        @apply mt-2;
         li {
-          @apply align-middle flex justify-center text-center items-center mr-4;
+          @apply align-middle
+          flex
+          justify-center
+          text-center
+          items-center
+          mr-4;
 
           a {
-            @apply no-underline inline-flex items-center border-b-4 leading-5 focus:outline-none transition duration-150 ease-in-out border-transparent dark:text-gray-300 dark:hover:text-gray-200 text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:focus:text-gray-200 focus:text-gray-700 focus:border-gray-300;
+            @apply no-underline
+            inline-flex
+            items-center
+            border-b-4
+            leading-5
+            focus:outline-none
+            transition
+            duration-150
+            ease-in-out
+            border-transparent
+            dark:text-gray-300
+            dark:hover:text-gray-200
+            text-gray-500
+            hover:text-gray-700
+            hover:border-gray-300
+            dark:focus:text-gray-200
+            focus:text-gray-700
+            focus:border-gray-300;
           }
         }
       }
     }
     nav.secondary {
-      @apply flex justify-end items-center;
+      @apply justify-end
+      items-center;
 
       ul {
-        @apply flex mt-1;
+        @apply flex
+        mt-1;
+
         li {
-          @apply align-middle justify-center text-center items-center p-3;
+          @apply align-middle
+          justify-center
+          text-center
+          items-center
+          p-3;
 
           a {
-            @apply inline-flex transition-transform ease-in-out hover:-translate-y-1 dark:text-gray-300 dark:hover:text-gray-200 text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:focus:text-gray-200 focus:text-gray-700 focus:border-gray-300;
+            @apply inline-flex
+            transition-transform
+            ease-in-out
+            hover:-translate-y-1
+            dark:text-gray-300
+            dark:hover:text-gray-200
+            text-gray-500
+            hover:text-gray-700
+            hover:border-gray-300
+            dark:focus:text-gray-200
+            focus:text-gray-700
+            focus:border-gray-300;
             /* @apply no-underline inline-flex items-center border-b-4 leading-5 focus:outline-none transition duration-150 ease-in-out border-transparent dark:text-gray-300 dark:hover:text-gray-200 text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:focus:text-gray-200 focus:text-gray-700 focus:border-gray-300; */
           }
         }
       }
     }
   }
+  .clouds {
+    @apply text-mega-bg -mt-20;
+  }
+
   .inner {
     grid-area: main;
-    @apply m-4;
+    @apply px-6;
   }
+
+  .hr-text {
+    @apply container;
+    line-height: 1em;
+    position: relative;
+    outline: 0;
+    border: 0;
+    color: black;
+    text-align: center;
+    height: 1.5em;
+    opacity: 0.5;
+    &:before {
+      content: "";
+      background: linear-gradient(to right, transparent, #818078, transparent);
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: 1px;
+    }
+    &:after {
+      content: attr(data-content);
+      position: relative;
+      display: inline-block;
+      color: black;
+      padding: 0 0.5em;
+      line-height: 1.5em;
+      @apply bg-mega-bg text-mega-grey;
+    }
+  }
+
   .footer {
     grid-area: footer;
-    @apply p-8 text-center md:order-2 print:hidden bg-mega-bg1;
+    @apply p-8
+    text-center
+    md:order-2
+    print:hidden;
 
     ul {
-      @apply align-middle flex justify-center text-center items-center;
+      @apply align-middle
+      flex
+      justify-center
+      text-center
+      items-center;
 
       li {
         @apply p-3;
 
         .theme-toggle-button {
-          @apply text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2 mr-4;
+          @apply text-gray-500
+          dark:text-gray-400
+          hover:bg-gray-100
+          dark:hover:bg-gray-700
+          focus:outline-none
+          focus:ring-4
+          focus:ring-gray-200
+          dark:focus:ring-gray-700
+          rounded-lg
+          text-sm
+          p-2
+          mr-4;
         }
 
         a {
-          @apply text-gray-400 hover:text-gray-500 mr-6;
+          @apply text-gray-400
+            hover:text-gray-500
+            mr-6;
         }
       }
     }

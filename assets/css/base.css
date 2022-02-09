@@ -2,17 +2,14 @@
   html {
     @apply h-full
     scroll-smooth
+    antialiased
+    leading-tight
     text-base;
   }
 
   body {
-    @apply h-full
-    scroll-smooth
-    antialiased
-    leading-tight
-    dark:bg-mega-bg
-    dark:text-mega-grey
-    text-base;
+    @apply dark:bg-mega-bg
+    dark:text-mega-grey;
   }
 
   .link {

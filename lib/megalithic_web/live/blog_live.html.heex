@@ -3,7 +3,6 @@
   <%= for post <- @posts do %>
     <div id={"post-#{post.id}"} class="post">
       <h2 class="title">
-        <span class="inline-flex items-center gap-2"><SVG.newspaper class="text-mega-orange" /></span>
         <%= live_redirect(post.title,
           to: Routes.blog_path(@socket, :show, post.id),
           class:
@@ -35,13 +34,11 @@
       <p class="description">
         <%= raw(post.description) %>
       </p>
-      <p class="">
+      <div class="feedback">
         <%= live_redirect("Read more...",
-          to: Routes.blog_path(@socket, :show, post.id),
-          class:
-            "transition-colors duration-150 border-b-4 focus:border-brand-500 hover:border-accent-500 no-underline"
+          to: Routes.blog_path(@socket, :show, post.id)
         ) %>
-      </p>
+      </div>
     </div>
   <% end %>
   </div>

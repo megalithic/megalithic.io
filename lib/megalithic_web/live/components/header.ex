@@ -33,8 +33,8 @@ defmodule MegalithicWeb.Components.Header do
             <!-- Mobile menu button -->
             <button
               phx-click={expand_mobile_menu()}
-              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-brand-100 focus:outline-none focus:bg-brand-100 focus:text-brand-500 transition duration-150 ease-in-out"
-              aria-label="Main menu"
+              class="mobile-button"
+              aria-label="Main Menu"
               aria-expanded="false"
             >
               <SVG.pancake />
@@ -84,8 +84,8 @@ defmodule MegalithicWeb.Components.Header do
         </nav>
       </div>
       <!-- Mobile Menu -->
-      <nav id="mobile_menu_content" class="hidden sm:hidden">
-        <ul class="bg-mega-bg_dark py-4">
+      <nav id="mobile_menu_content" class="mobile-menu hidden sm:hidden">
+        <ul>
           <li>
             <%= live_redirect("Blog",
               to: Routes.blog_path(@socket, :index),
@@ -94,15 +94,8 @@ defmodule MegalithicWeb.Components.Header do
             ) %>
           </li>
           <li>
-          <%= live_redirect("Projects",
+          <%= live_redirect("About",
             to: Routes.page_path(@socket, :about),
-            class:
-              ""
-          ) %>
-          </li>
-          <li>
-          <%= outbound_link("Utilities",
-            to: "https://utils.zest.dev",
             class:
               ""
           ) %>

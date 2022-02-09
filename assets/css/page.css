@@ -107,6 +107,19 @@
         }
       }
     }
+    nav.mobile-menu {
+      /* inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-brand-100 focus:outline-none focus:bg-brand-100 focus:text-brand-500 transition duration-150 ease-in-out */
+      @apply bg-mega-bg_dark;
+      ul {
+        @apply divide-y divide-mega-bg_blue;
+        li {
+          @apply py-5 px-7;
+          a {
+            @apply no-underline block;
+          }
+        }
+      }
+    }
   }
   .clouds {
     @apply text-mega-bg -mt-20;

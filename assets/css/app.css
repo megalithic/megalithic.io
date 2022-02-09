@@ -5,6 +5,8 @@
 @import "./liveview.css";
 @import "./fonts.css";
 @import "./base.css";
+@import "./header.css";
+@import "./footer.css";
 @import "./page.css";
 @import "./posts.css";
 @import "./syntax.css";

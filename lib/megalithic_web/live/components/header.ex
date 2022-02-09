@@ -21,7 +21,7 @@ defmodule MegalithicWeb.Components.Header do
           <h1>
             <%= live_patch("megalithic industries", to: Routes.blog_path(@socket, :index), class: "") %>
           </h1>
-          <ul class="hidden sm:flex">
+          <ul class="hidden sm:hidden">
             <li>
               <%= live_patch("blog", to: Routes.blog_path(@socket, :index)) %>
             </li>

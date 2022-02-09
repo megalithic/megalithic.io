@@ -1,126 +1,4 @@
 @layer components {
-  .header {
-    grid-area: header;
-    @apply bg-mega-bg1;
-
-    .container {
-      @apply flex
-      py-2
-      sm:pt-4
-      sm:pb-12
-      justify-start
-      relative
-      flex-1
-      items-center;
-    }
-
-    .logo {
-      @apply hidden sm:inline-flex
-      ml-2 h-20 w-20 sm:h-[120px] sm:w-[120px] sm:ml-2;
-    }
-
-    nav.primary {
-      @apply ml-6
-      flex
-      sm:block
-      flex-1;
-
-      h1 {
-        @apply m-0
-        flex
-        flex-1
-        align-middle
-        items-center
-        justify-start
-        sm:block
-        mr-10;
-
-        a {
-          @apply no-underline
-          text-mega-grey2;
-        }
-      }
-
-      ul {
-        @apply mt-2;
-        li {
-          @apply align-middle
-          flex
-          justify-center
-          text-center
-          items-center
-          mr-4;
-
-          a {
-            @apply no-underline
-            inline-flex
-            items-center
-            border-b-4
-            leading-5
-            focus:outline-none
-            transition
-            duration-150
-            ease-in-out
-            border-transparent
-            dark:text-gray-300
-            dark:hover:text-gray-200
-            text-gray-500
-            hover:text-gray-700
-            hover:border-gray-300
-            dark:focus:text-gray-200
-            focus:text-gray-700
-            focus:border-gray-300;
-          }
-        }
-      }
-    }
-    nav.secondary {
-      @apply justify-end
-      items-center;
-
-      ul {
-        @apply flex
-        mt-1;
-
-        li {
-          @apply align-middle
-          justify-center
-          text-center
-          items-center
-          p-3;
-
-          a {
-            @apply inline-flex
-            transition-transform
-            ease-in-out
-            hover:-translate-y-1
-            dark:text-gray-300
-            dark:hover:text-gray-200
-            text-gray-500
-            hover:text-gray-700
-            hover:border-gray-300
-            dark:focus:text-gray-200
-            focus:text-gray-700
-            focus:border-gray-300;
-            /* @apply no-underline inline-flex items-center border-b-4 leading-5 focus:outline-none transition duration-150 ease-in-out border-transparent dark:text-gray-300 dark:hover:text-gray-200 text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:focus:text-gray-200 focus:text-gray-700 focus:border-gray-300; */
-          }
-        }
-      }
-    }
-    nav.mobile-menu {
-      /* inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-brand-100 focus:outline-none focus:bg-brand-100 focus:text-brand-500 transition duration-150 ease-in-out */
-      @apply bg-mega-bg_dark;
-      ul {
-        @apply divide-y divide-mega-bg_blue;
-        li {
-          @apply py-5 px-7;
-          a {
-            @apply no-underline block;
-          }
-        }
-      }
-    }
-  }
   .clouds {
     @apply text-mega-bg -mt-20;
   }
@@ -130,7 +8,7 @@
     @apply px-6;
   }
 
-  .hr-text {
+  hr.fancy {
     @apply container;
     line-height: 1em;
     position: relative;
@@ -157,50 +35,6 @@
       padding: 0 0.5em;
       line-height: 1.5em;
       @apply bg-mega-bg text-mega-grey;
-    }
-  }
-
-  .footer {
-    grid-area: footer;
-    @apply p-8
-    text-center
-    md:order-2
-    print:hidden;
-
-    ul {
-      @apply align-middle
-      flex
-      justify-center
-      text-center
-      items-center;
-
-      li {
-        @apply p-3;
-
-        .theme-toggle-button {
-          @apply text-gray-500
-          dark:text-gray-400
-          hover:bg-gray-100
-          dark:hover:bg-gray-700
-          focus:outline-none
-          focus:ring-4
-          focus:ring-gray-200
-          dark:focus:ring-gray-700
-          rounded-lg
-          text-sm
-          p-2
-          mr-4;
-        }
-
-        a {
-          @apply text-gray-400
-            hover:text-gray-500
-            mr-6;
-        }
-      }
-    }
-    .copyright {
-      @apply text-mega-grey2;
     }
   }
 

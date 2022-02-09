@@ -16,7 +16,10 @@ defmodule MegalithicWeb.Components.Header do
     ~H"""
     <header class="header">
       <div class="container">
-        <SVG.megalith />
+        <%= live_patch to: Routes.blog_path(@socket, :index) do %>
+          <SVG.megalith />
+        <% end %>
+
         <nav class="primary">
           <h1>
             <%= live_patch("megalithic industries", to: Routes.blog_path(@socket, :index), class: "") %>

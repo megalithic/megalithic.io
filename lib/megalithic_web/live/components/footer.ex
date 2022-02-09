@@ -53,7 +53,7 @@ defmodule MegalithicWeb.Components.Footer do
           </li>
         </ul>
       </nav>
-      <div class="copyright">&copy; <%= DateTime.utc_now().year %> megalithic industries (seth messer)
+      <div class="copyright">&copy; 2002 - <%= DateTime.utc_now().year %> megalithic industries (seth messer)
         <span class="hidden print:inline">
           megalithic.io
         </span>

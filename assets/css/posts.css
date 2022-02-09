@@ -36,6 +36,19 @@
         a {
           @apply hover:no-underline hover:squiggle-blue hover:border-opacity-0
           hover:border-b-0;
+
+          &[href*="//"]:not([href*="megalithic.io"])
+          {
+            @apply after:content-["↗️"]
+            after:text-sm
+            after:text-mega-grey2
+            after:relative
+            after:-top-1
+            after:no-underline;
+          }
+          a[href*="?referer"] {
+            /* external styles */
+          }
         }
 
         pre code {

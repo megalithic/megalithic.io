@@ -15,8 +15,17 @@
     }
 
     .logo {
-      @apply hidden sm:inline-flex
-      ml-2 h-20 w-20 sm:h-[120px] sm:w-[120px] sm:ml-2;
+      @apply hidden
+      transition
+      ease-in-out
+      hover:scale-90
+      sm:inline-flex
+      ml-2
+      h-20
+      w-20
+      sm:h-[120px]
+      sm:w-[120px]
+      sm:ml-2;
     }
 
     nav.primary {
@@ -37,7 +46,12 @@
 
         a {
           @apply no-underline
-          text-mega-grey2;
+          text-mega-grey2
+          transition
+          duration-150
+          ease-in-out
+          dark:hover:text-mega-grey1
+          hover:text-mega-grey1;
         }
       }
 

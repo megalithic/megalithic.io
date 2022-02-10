@@ -3,7 +3,7 @@ defmodule Megalithic.Blog do
 
   use NimblePublisher,
     build: Megalithic.Blog.Post,
-    from: "posts/**/*.md",
+    from: "priv/posts/**/*.md",
     as: :posts,
     # earmark_options: [postprocessor: &Megalithic.Blog.Markdown.post_processor/1],
     highlighters: [:makeup_elixir]

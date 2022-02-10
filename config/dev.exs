@@ -70,7 +70,7 @@ config :megalithic, MegalithicWeb.Endpoint,
       ~r"priv/gettext/.*(po)$",
       ~r"lib/megalithic_web/(live|views)/.*(ex)$",
       ~r"lib/megalithic_web/templates/.*(eex)$",
-      ~r"posts/*/.*(md)$"
+      ~r"priv/posts/*/.*(md)$"
     ]
   ]
 

@@ -46,7 +46,6 @@ RUN mix deps.compile
 
 COPY lib ./lib
 COPY priv ./priv
-COPY posts ./posts
 COPY assets ./assets
 
 # RUN npm --prefix ./assets ci --progress=false --no-audit --loglevel=error

@@ -32,11 +32,17 @@ defmodule MegalithicWeb.Router do
     pipe_through [:browser]
 
     live "/", PageLive, :home
-    live "/blog", BlogLive, :index, as: :blog
     live "/thoughts", BlogLive, :index, as: :blog
-    live "/blog/:id", BlogLive, :show, as: :blog
     live "/thoughts/:id", BlogLive, :index, as: :blog
     live "/about", PageLive, :about
+  end
+
+  scope "/blog", MegalithicWeb do
+    pipe_through [:browser]
+
+    live "/", BlogLive, :index, as: :blog
+    live "/:id", BlogLive, :show, as: :blog
+    live "/tags/:tag", BlogLive, :tag, as: :blog
   end
 
   # Other scopes may use custom stacks.

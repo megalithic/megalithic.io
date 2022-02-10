@@ -1,11 +1,9 @@
 defmodule MegalithicWeb.BlogLive do
   use MegalithicWeb, :live_view
 
-  alias MegalithicWeb.Components.SVG
-
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, socket, temporary_assigns: [posts: [], relevant_posts: [], post: nil]}
+    {:ok, socket, temporary_assigns: [posts: [], relevant_posts: [], post: nil, tag: nil]}
   end
 
   @impl true
@@ -23,6 +21,15 @@ defmodule MegalithicWeb.BlogLive do
     id
     |> Megalithic.Blog.get_post_by_id!()
     |> show(socket)
+  end
+
+  defp apply_action(socket, :tag, %{"tag" => tag}) do
+    posts = Megalithic.Blog.get_posts_by_tag!(tag)
+
+    socket
+    |> assign(:tag, tag)
+    |> assign(:posts, posts)
+    |> assign(:page_title, "blog | #{tag}")
   end
 
   defp apply_action(socket, :index, _params) do

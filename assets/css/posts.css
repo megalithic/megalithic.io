@@ -3,6 +3,15 @@
     .posts {
       @apply mb-12 divide-y divide-mega-bg_blue sm:divide-none;
     }
+
+    .for-tag {
+      .subtitle {
+        @apply text-mega-bg_yellow;
+        pre {
+          @apply bg-mega-bg_visual text-mega-fg px-2 font-bold inline-block text-lg;
+        }
+      }
+    }
     .post-nav {
       a {
         @apply no-underline flex items-center text-center align-middle;

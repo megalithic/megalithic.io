@@ -4,6 +4,25 @@ defmodule MegalithicWeb.BlogTag do
   def render(assigns) do
     ~H"""
     <div class="posts for-tag">
+      <p class="post-nav">
+        <%= live_redirect to: Routes.blog_path(@socket, :index), class: "" do %>
+          <svg
+            class="-ml-0.5 mr-2 w-5 h-5 flex"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M7 16l-4-4m0 0l4-4m-4 4h18"
+            />
+          </svg>
+          all posts
+        <% end %>
+      </p>
       <h4 class="subtitle">
         Posts for tag: <pre><%= @tag %></pre>
       </h4>

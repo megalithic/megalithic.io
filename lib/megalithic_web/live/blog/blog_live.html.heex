@@ -1,12 +1,12 @@
 <%= case @live_action do %>
 <% :index -> %>
-<.live_component module={MegalithicWeb.BlogIndex} id="blog_index" posts={@posts} />
+  <.live_component module={MegalithicWeb.BlogIndex} id="blog_index" posts={@posts} />
 <% :show -> %>
-<.live_component module={MegalithicWeb.BlogShow} id="blog_show" post={@post} />
+  <.live_component module={MegalithicWeb.BlogShow} id="blog_show" post={@post} readers={nil} relevant_posts={@relevant_posts} />
 <% :tag -> %>
-<.live_component module={MegalithicWeb.BlogTag} id="blog_tag" posts={@posts} tag={@tag} />
+  <.live_component module={MegalithicWeb.BlogTag} id="blog_tag" posts={@posts} tag={@tag} />
 <% :related -> %>
-<.live_component module={MegalithicWeb.BlogRelated} id="blog_related" related_posts={@related_posts} />
+  <.live_component module={MegalithicWeb.BlogRelated} id="blog_related" related_posts={@related_posts} />
 <% _ -> %>
-<.live_component module={MegalithicWeb.BlogIndex} id="blog_other" posts={@posts} />
+  <.live_component module={MegalithicWeb.BlogIndex} id="blog_other" posts={@posts} />
 <% end %>

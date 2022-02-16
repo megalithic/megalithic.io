@@ -5,7 +5,8 @@ defmodule MegalithicWeb.BlogLive do
 
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, socket, temporary_assigns: [posts: [], relevant_posts: [], post: nil, tag: nil]}
+    {:ok, socket,
+     temporary_assigns: [posts: [], relevant_posts: [], post: nil, tag: nil, readers: 0]}
   end
 
   @impl true
@@ -77,6 +78,7 @@ defmodule MegalithicWeb.BlogLive do
       topic
       |> MegalithicWeb.Presence.list()
       |> map_size()
+      |> IO.inspect(label: "readers list and map_sized")
 
     if connected?(socket) do
       Logger.debug(
@@ -92,10 +94,17 @@ defmodule MegalithicWeb.BlogLive do
 
   @impl true
   def handle_info(
-        %{event: "presence_diff", payload: %{joins: joins, leaves: leaves}},
+        %{event: "presence_diff", payload: %{joins: joins, leaves: leaves}} = thing,
         %{assigns: %{readers: count}} = socket
       ) do
-    readers = count + map_size(joins) - map_size(leaves)
+    IO.inspect({count, joins, leaves, thing, socket},
+      label: "presence_diff --------------------------------------"
+    )
+
+    readers =
+      (count + map_size(joins) - map_size(leaves))
+      |> IO.inspect(label: "final readers")
+
     {:noreply, assign(socket, :readers, readers)}
   end
 end

@@ -1,21 +1,10 @@
 defmodule MegalithicWeb.BlogShow do
   use MegalithicWeb, :live_component
 
-  # def update(assigns, socket) do
-  #   IO.inspect({assigns, socket}, label: "updated blog show component")
-
-  #   socket =
-  #     socket
-  #     |> assign(post: assigns.post)
-  #     |> assign(readers: assigns.readers)
-  #     |> assign(relevant_posts: assigns.relevant_posts)
-
-  #   {:ok, socket}
-  # end
-
   def render(assigns) do
     ~H"""
     <div class="post-container">
+      <pre><code class="makeup elixir"><%= inspect(assigns) %></code></pre>
       <p class="post-nav hidden">
         <%= live_redirect to: Routes.blog_path(@socket, :index), class: "" do %>
           <svg
@@ -50,7 +39,8 @@ defmodule MegalithicWeb.BlogShow do
             <dd class="reading-time">
               <%= @post.reading_time %>min to read
             </dd>
-          <%= if !is_nil(@readers) and @readers > 1 do %>
+          <pre><code class="makeup elixir"><%= inspect(@readers) %></code></pre>
+          <%= if not is_nil(@readers) and @readers > 1 do %>
             <dd class="current-readers">
               <%= @readers %> current readers
             </dd>

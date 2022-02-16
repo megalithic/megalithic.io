@@ -1,10 +1,8 @@
-<pre><code class="makeup elixir"><%= inspect(assigns) %></code></pre>
-<pre><code class="makeup elixir"><%= inspect(assigns.readers) %></code></pre>
 <%= case @live_action do %>
 <% :index -> %>
   <.live_component module={MegalithicWeb.BlogIndex} id="blog_index" posts={@posts} />
 <% :show -> %>
-  <.live_component module={MegalithicWeb.BlogShow} id="blog_show" post={@post} readers={0} relevant_posts={@relevant_posts} />
+  <MegalithicWeb.BlogShow.show id="blog_show" post={@post} readers={@readers} relevant_posts={@relevant_posts} />
 <% :tag -> %>
   <.live_component module={MegalithicWeb.BlogTag} id="blog_tag" posts={@posts} tag={@tag} />
 <% :related -> %>

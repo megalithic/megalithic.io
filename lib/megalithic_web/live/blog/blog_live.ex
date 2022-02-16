@@ -5,8 +5,7 @@ defmodule MegalithicWeb.BlogLive do
 
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, socket,
-     temporary_assigns: [posts: [], relevant_posts: [], post: nil, tag: nil, readers: 0]}
+    {:ok, socket, temporary_assigns: [posts: [], relevant_posts: [], post: nil, tag: nil]}
   end
 
   @impl true
@@ -32,19 +31,20 @@ defmodule MegalithicWeb.BlogLive do
     |> show(socket)
   end
 
+  defp apply_action(socket, :show, %{"id" => id}) do
+    id
+    |> Megalithic.Blog.get_post_by_id!()
+    |> show(socket)
+  end
+
   defp apply_action(socket, :tag, %{"tag" => tag}) do
     posts = Megalithic.Blog.get_posts_by_tag!(tag)
 
     socket
     |> assign(:tag, tag)
     |> assign(:posts, posts)
+    |> assign(:readers, nil)
     |> assign(:page_title, "blog | #{tag}")
-  end
-
-  defp apply_action(socket, :show, %{"id" => id}) do
-    id
-    |> Megalithic.Blog.get_post_by_id!()
-    |> show(socket)
   end
 
   defp apply_action(socket, :index, _params) do
@@ -52,6 +52,7 @@ defmodule MegalithicWeb.BlogLive do
 
     socket
     |> assign(:posts, posts)
+    |> assign(:readers, nil)
     |> assign(:page_title, "blog")
   end
 
@@ -78,7 +79,6 @@ defmodule MegalithicWeb.BlogLive do
       topic
       |> MegalithicWeb.Presence.list()
       |> map_size()
-      |> IO.inspect(label: "readers list and map_sized")
 
     if connected?(socket) do
       Logger.debug(
@@ -94,16 +94,10 @@ defmodule MegalithicWeb.BlogLive do
 
   @impl true
   def handle_info(
-        %{event: "presence_diff", payload: %{joins: joins, leaves: leaves}} = thing,
+        %{event: "presence_diff", payload: %{joins: joins, leaves: leaves}},
         %{assigns: %{readers: count}} = socket
       ) do
-    IO.inspect({count, joins, leaves, thing, socket},
-      label: "presence_diff --------------------------------------"
-    )
-
-    readers =
-      (count + map_size(joins) - map_size(leaves))
-      |> IO.inspect(label: "final readers")
+    readers = count + map_size(joins) - map_size(leaves)
 
     {:noreply, assign(socket, :readers, readers)}
   end

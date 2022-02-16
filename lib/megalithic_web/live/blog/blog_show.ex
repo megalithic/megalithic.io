@@ -1,12 +1,17 @@
 defmodule MegalithicWeb.BlogShow do
-  use MegalithicWeb, :live_component
+  # use MegalithicWeb, :live_component
 
-  def render(assigns) do
+  import MegalithicWeb.Components.Link
+
+  use Phoenix.Component
+  use Phoenix.HTML
+  alias MegalithicWeb.Router.Helpers, as: Routes
+
+  def show(assigns) do
     ~H"""
     <div class="post-container">
-      <pre><code class="makeup elixir"><%= inspect(assigns) %></code></pre>
       <p class="post-nav hidden">
-        <%= live_redirect to: Routes.blog_path(@socket, :index), class: "" do %>
+        <%= live_redirect to: Routes.blog_path(MegalithicWeb.Endpoint, :index), class: "" do %>
           <svg
             class="-ml-0.5 mr-2 w-5 h-5 flex"
             xmlns="http://www.w3.org/2000/svg"
@@ -30,16 +35,12 @@ defmodule MegalithicWeb.BlogShow do
           <dt>Published on <%= Date.to_iso8601(@post.date) %></dt>
           <%= if @post.original_url do %>
             <dd class="original-publishing">
-              <%= outbound_link("Original Publishing",
-                class: "border-b-2 hover:border-accent-500 transition-colors duration-150 ease-in-out",
-                to: @post.original_url
-              ) %>
+              <.link class="border-b-2 hover:border-accent-500 transition-colors duration-150 ease-in-out" to={@post.original_url}>Original Publishing</.link>
             </dd>
           <% end %>
             <dd class="reading-time">
               <%= @post.reading_time %>min to read
             </dd>
-          <pre><code class="makeup elixir"><%= inspect(@readers) %></code></pre>
           <%= if not is_nil(@readers) and @readers > 1 do %>
             <dd class="current-readers">
               <%= @readers %> current readers
@@ -60,8 +61,8 @@ defmodule MegalithicWeb.BlogShow do
       </article>
       <div class="feedback">
         <p class="mt-4 mb-10">
-          I'd love to hear from you, <%= outbound_link("get @ me on twitter", to: "https://twitter.com/megalithic", class: "link") %>.
-          <%= if @post.discussion_url do %> or <%= outbound_link("leave a comment at GitHub", class: "link", to: @post.discussion_url) %><% end %>
+          I'd love to hear from you, <.link to="https://twitter.com/megalithic">get @ me on twitter</.link>.
+          <%= if @post.discussion_url do %> or <.link to={@post.discussion_url}>leave a comment at GitHub</.link><% end %>
         </p>
       </div>
       <%= if Enum.any?(@relevant_posts) do %>

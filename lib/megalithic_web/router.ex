@@ -32,8 +32,6 @@ defmodule MegalithicWeb.Router do
     pipe_through [:browser]
 
     live "/", PageLive, :home
-    live "/thoughts", BlogLive, :index, as: :blog
-    live "/thoughts/:id", BlogLive, :index, as: :blog
     live "/about", PageLive, :about
   end
 

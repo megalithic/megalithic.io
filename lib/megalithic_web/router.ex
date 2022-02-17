@@ -33,6 +33,9 @@ defmodule MegalithicWeb.Router do
 
     live "/", PageLive, :home
     live "/about", PageLive, :about
+    live "/canon", PageLive, :home
+    live "/canonize", PageLive, :home
+    live "/mercantile", PageLive, :home
   end
 
   scope "/blog", MegalithicWeb do

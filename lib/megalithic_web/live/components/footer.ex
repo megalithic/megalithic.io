@@ -20,14 +20,6 @@ defmodule MegalithicWeb.Components.Footer do
             </select>
           </li>
           <li>
-            <%= outbound_link to: Routes.static_path(@socket, "/images/sbmesser_resume.pdf"), title: "Resume", download: "sbmesser_resume" do %>
-              <span class="sr-only">
-                My Resume/CV
-              </span>
-              <SVG.resume_small />
-            <% end %>
-          </li>
-          <li>
             <%= outbound_link to: "https://twitter.com/megalithic", title: "Twitter" do %>
               <span class="sr-only">
                 Twitter

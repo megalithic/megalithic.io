@@ -33,11 +33,12 @@
         }
 
         a {
+          transition: color 0.3s;
           @apply inline-flex
             text-gray-400
-            hover:-translate-y-1
-            hover:text-gray-300
-            transition-transform
+            /* hover:-translate-y-1 */
+            hover:text-mega-blue
+            /* transition-transform */
             ease-in-out;
 
           /* dark:text-gray-300 */

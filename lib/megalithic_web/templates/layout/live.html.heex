@@ -1,14 +1,20 @@
-<%= live_component(MegalithicWeb.Components.Header, id: "header_component") %>
+<%= if @live_action !== :home, do: live_component(MegalithicWeb.Components.Header, id: "header_component") %>
 
 <main class="main-content" role="main">
   <p class="alert alert-info" role="alert" phx-click="lv:clear-flash" phx-value-key="info"><%= live_flash(@flash, :info) %></p>
   <p class="alert alert-danger" role="alert" phx-click="lv:clear-flash" phx-value-key="error"><%= live_flash(@flash, :error) %></p>
-  <MegalithicWeb.Components.SVG.clouds />
+
+  <%= if @live_action !== :home do %>
+    <MegalithicWeb.Components.SVG.clouds />
+  <% end %>
+
   <div class="container inner">
     <%= @inner_content %>
   </div>
 </main>
 
-<hr class="fancy" data-content="○" />
+<%= if @live_action !== :home do %>
+  <hr class="fancy" data-content="○" />
+<% end %>
 
-<%= live_component(MegalithicWeb.Components.Footer, id: "footer_component") %>
+<%= live_component(MegalithicWeb.Components.Footer, id: "footer_component", live_action: @live_action) %>

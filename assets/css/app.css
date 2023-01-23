@@ -10,3 +10,5 @@
 @import "./page.css";
 @import "./posts.css";
 @import "./syntax.css";
+
+@import "./pages/landing.css";

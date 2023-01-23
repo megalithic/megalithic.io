@@ -20,6 +20,14 @@ defmodule MegalithicWeb.Components.Footer do
             </select>
           </li>
           <li>
+            <%= outbound_link to: Routes.static_path(@socket, "/images/sbmesser_resume.pdf"), title: "Resume", download: "sbmesser_resume" do %>
+              <span class="sr-only">
+                My Resume/CV
+              </span>
+              <SVG.resume_small />
+            <% end %>
+          </li>
+          <li>
             <%= outbound_link to: "https://twitter.com/megalithic", title: "Twitter" do %>
               <span class="sr-only">
                 Twitter
@@ -36,6 +44,22 @@ defmodule MegalithicWeb.Components.Footer do
             <% end %>
           </li>
           <li>
+            <%= outbound_link to: "https://www.linkedin.com/in/seth-messer/", title: "LinkedIn" do %>
+              <span class="sr-only">
+                LinkedIn
+              </span>
+              <SVG.linkedin_small />
+            <% end %>
+          </li>
+          <li>
+            <%= outbound_link to: "mailto:seth@megalthic.io?subject=I'm interested in talking further", title: "Email me" do %>
+              <span class="sr-only">
+                Email me
+              </span>
+              <SVG.email_small />
+            <% end %>
+          </li>
+          <li class={if @live_action === :home, do: "hidden"}>
             <%= link to: Routes.robot_path(@socket, :rss), title: "RSS Feed" do %>
               <span class="sr-only">
                 RSS Feed

@@ -33,22 +33,12 @@
         }
 
         a {
-          transition: color 0.3s;
+          transition: all 0.3s;
           @apply inline-flex
             text-gray-400
-            /* hover:-translate-y-1 */
+            hover:scale-95
             hover:text-mega-blue
-            /* transition-transform */
             ease-in-out;
-
-          /* dark:text-gray-300 */
-          /* dark:hover:text-gray-200 */
-          /* text-gray-500 */
-          /* hover:text-gray-700 */
-          /* hover:border-gray-300 */
-          /* dark:focus:text-gray-200 */
-          /* focus:text-gray-700 */
-          /* focus:border-gray-300; */
         }
       }
     }

@@ -44,7 +44,7 @@ defmodule MegalithicWeb.Components.Footer do
             <% end %>
           </li>
           <li>
-            <%= outbound_link to: "mailto:seth@megalthic.io?subject=I'm interested in talking further", title: "Email me" do %>
+            <%= outbound_link to: "mailto:seth@megalthic.io", title: "Email me" do %>
               <span class="sr-only">
                 Email me
               </span>

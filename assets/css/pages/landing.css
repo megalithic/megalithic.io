@@ -26,51 +26,51 @@ body.page-home {
 
   .footer {
     @apply p-0;
+
     .copyright {
       display: none;
     }
   }
 
   #logo {
-    transition: all 0.2s;
     margin: 0 0 0.75rem;
-    /* border: 2px solid rgba(0, 0, 0, 2%); */
-    /* outline: 1px solid rgba(255, 255, 255, 4%); */
-    /* box-shadow: 0 0 0 1px rgba(255, 255, 255, 4%); */
     padding: 0;
-    border-radius: 100%;
-    /* background: rgba(0, 0, 0, 10%); */
     display: flex;
     align-items: center;
     align-content: center;
     flex-direction: column;
     justify-content: center;
     overflow: hidden;
-  }
 
-  #logo > svg,
-  #logo > img {
-    position: relative;
-    /* bottom: -8px; */
-    /* height: 90px; */
-    /* width: 90px; */
+    h1 {
+      margin: 0 0 0.5rem;
+      color: theme("colors.mega.bg2");
 
-    @apply h-20
-      w-20
-      sm:h-[120px]
-      sm:w-[120px];
-    /* scale: 0.9; */
-    transform: scale(0.9);
-  }
+      b {
+        color: theme("colors.mega.bg4");
+      }
+    }
 
-  #logo:hover {
-    /* transform: scale(0.98) translateY(2px); */
-    /* background: rgba(0, 0, 0, 10%); */
-    cursor: pointer;
-    opacity: 0.9;
-    /* border: 2px solid rgba(0, 0, 0, 10%); */
-    /* outline: 1px solid rgba(255, 255, 255, 6%); */
-    /* box-shadow: 0 0 0 1px rgba(255, 255, 255, 6%); */
+    & > svg,
+    & > img {
+      transition: all 0.4s ease-in-out;
+      position: relative;
+      height: 120px;
+      width: 120px;
+      border-radius: 100%;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      & > svg {
+        /* transform: scale(0.98) translateY(2px); */
+
+        & > circle:first-of-type {
+          stroke: theme("colors.mega.teal");
+        }
+      }
+    }
   }
 
   /* --- (LOGO ANIMATION) ------------------------------------------------------*/

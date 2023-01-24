@@ -35,7 +35,7 @@
         a {
           transition: all 0.3s;
           @apply inline-flex
-            text-gray-400
+            text-mega-bg4
             hover:scale-95
             hover:text-mega-blue
             ease-in-out;

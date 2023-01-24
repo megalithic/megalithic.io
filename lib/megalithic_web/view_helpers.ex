@@ -9,6 +9,6 @@ defmodule MegalithicWeb.ViewHelpers do
   end
 
   def outbound_link(text, opts) do
-    Phoenix.HTML.Link.link(text, [rel: "nofollow noopener"] ++ opts)
+    Phoenix.HTML.Link.link(text, [rel: "nofollow noopener", target: "_blank"] ++ opts)
   end
 end

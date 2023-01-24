@@ -61,10 +61,10 @@ body.page-home {
     }
 
     &:hover {
-      cursor: pointer;
+      cursor: default;
 
       & > svg {
-        /* transform: scale(0.98) translateY(2px); */
+        cursor: pointer;
 
         & > circle:first-of-type {
           stroke: theme("colors.mega.teal");

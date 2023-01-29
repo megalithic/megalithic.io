@@ -17,7 +17,6 @@ defmodule MegalithicWeb.SEO.OpenGraph do
   <meta property="og:image" content={ og_meta.image }>
   <meta property="og:url" content={ current_url(@conn) }>
   <meta name="twitter:card" content={ og_meta.twitter }>
-
   <meta property="og:site_name" content={ og_meta.site_name }>
   <meta name="twitter:image:alt" content={ og_meta.image_alt }>
 

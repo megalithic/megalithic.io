@@ -19,6 +19,7 @@ defmodule MegalithicWeb.SEO do
       <link rel="canonical" href={@canonical_url}>
       <% end %>
     <meta property="og:url" content={Phoenix.Controller.current_url(assigns.conn)}>
+    <meta property="og:image" content={MegalithicWeb.Router.Helpers.static_url(assigns.conn, "/images/megalithic_io.png")}>
     <%= if @og do %>
       <.opengraph og={@og} />
       <% end %>

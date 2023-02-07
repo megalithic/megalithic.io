@@ -16,20 +16,20 @@ defmodule MegalithicWeb.Components.Header do
     ~H"""
     <header class="header">
       <div class="container">
-        <%= live_patch to: Routes.blog_path(@socket, :index) do %>
+        <%= live_patch to: Routes.page_path(@socket, :home) do %>
           <SVG.megalith />
         <% end %>
 
         <nav class="primary">
           <h1>
-            <%= live_patch("megalithic industries", to: Routes.blog_path(@socket, :index), class: "") %>
+            <%= live_patch("megalithic industries", to: Routes.page_path(@socket, :home), class: "") %>
           </h1>
           <ul class="hidden sm:hidden">
             <li>
               <%= live_patch("blog", to: Routes.blog_path(@socket, :index)) %>
             </li>
             <li>
-              <%= live_patch("about", to: Routes.page_path(@socket, :about)) %>
+              <%= live_patch("about", to: Routes.page_path(@socket, :home)) %>
             </li>
           </ul>
           <div class="flex items-center align-middle justify-end mr-3 sm:hidden">
@@ -98,7 +98,7 @@ defmodule MegalithicWeb.Components.Header do
           </li>
           <li>
           <%= live_redirect("About",
-            to: Routes.page_path(@socket, :about),
+            to: Routes.page_path(@socket, :home),
             class:
               ""
           ) %>

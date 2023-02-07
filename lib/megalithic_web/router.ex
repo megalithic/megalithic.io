@@ -2,50 +2,49 @@ defmodule MegalithicWeb.Router do
   use MegalithicWeb, :router
 
   pipeline :browser do
-    plug :accepts, ["html"]
-    plug :fetch_session
-    plug :fetch_live_flash
-    plug :put_root_layout, {MegalithicWeb.LayoutView, :root}
-    plug :protect_from_forgery
-    plug :put_secure_browser_headers
+    plug(:accepts, ["html"])
+    plug(:fetch_session)
+    plug(:fetch_live_flash)
+    plug(:put_root_layout, {MegalithicWeb.LayoutView, :root})
+    plug(:protect_from_forgery)
+    plug(:put_secure_browser_headers)
   end
 
   pipeline :api do
-    plug :accepts, ["json"]
+    plug(:accepts, ["json"])
   end
 
   pipeline :robots do
-    plug :accepts, ~w[json txt xml webmanifest]
+    plug(:accepts, ~w[json txt xml webmanifest])
   end
 
   scope "/", MegalithicWeb, log: false do
-    pipe_through [:robots]
+    pipe_through([:robots])
 
-    get "/sitemap.xml", RobotController, :sitemap
-    get "/robots.txt", RobotController, :robots
-    get "/rss.xml", RobotController, :rss
-    get "/site.webmanifest", RobotController, :site_webmanifest
-    get "/browserconfig.xml", RobotController, :browserconfig
+    get("/sitemap.xml", RobotController, :sitemap)
+    get("/robots.txt", RobotController, :robots)
+    get("/rss.xml", RobotController, :rss)
+    get("/site.webmanifest", RobotController, :site_webmanifest)
+    get("/browserconfig.xml", RobotController, :browserconfig)
   end
 
   scope "/", MegalithicWeb do
-    pipe_through [:browser]
+    pipe_through([:browser])
 
-    live "/", PageLive, :home
-    live "/blog", PageLive, :home
-    live "/about", PageLive, :home
-    live "/canon", PageLive, :home
-    live "/canonize", PageLive, :home
-    live "/mercantile", PageLive, :home
+    live("/", PageLive, :home)
+    live("/about", PageLive, :home)
+    live("/canon", PageLive, :home)
+    live("/canonize", PageLive, :home)
+    live("/mercantile", PageLive, :home)
   end
 
-  # scope "/blog", MegalithicWeb do
-  #   pipe_through [:browser]
-  #
-  #   live "/", BlogLive, :index, as: :blog
-  #   live "/:id", BlogLive, :show, as: :blog
-  #   live "/tags/:tag", BlogLive, :tag, as: :blog
-  # end
+  scope "/blog", MegalithicWeb do
+    pipe_through([:browser])
+
+    live("/", BlogLive, :index, as: :blog)
+    live("/:id", BlogLive, :show, as: :blog)
+    live("/tags/:tag", BlogLive, :tag, as: :blog)
+  end
 
   # Other scopes may use custom stacks.
   # scope "/api", MegalithicWeb do
@@ -63,9 +62,9 @@ defmodule MegalithicWeb.Router do
     import Phoenix.LiveDashboard.Router
 
     scope "/" do
-      pipe_through :browser
+      pipe_through(:browser)
 
-      live_dashboard "/dashboard", metrics: MegalithicWeb.Telemetry
+      live_dashboard("/dashboard", metrics: MegalithicWeb.Telemetry)
     end
   end
 
@@ -75,9 +74,9 @@ defmodule MegalithicWeb.Router do
   # node running the Phoenix server.
   if Mix.env() == :dev do
     scope "/dev" do
-      pipe_through :browser
+      pipe_through(:browser)
 
-      forward "/mailbox", Plug.Swoosh.MailboxPreview
+      forward("/mailbox", Plug.Swoosh.MailboxPreview)
     end
   end
 end
